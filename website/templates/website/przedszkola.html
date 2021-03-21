@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+ <h2>Zapisz dziecko do przedszkola</h2>
+   <!--
+    <form method="POST" class="empty-form">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    {{ form.kinder_name.errors }}
+                    <label for="{{ form.kinder_name.id_for_label }}"> Nazwa przedszkola: </label>
+                </td>
+                <td>
+                    {{ form.kinder_name }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.user_name.errors }}
+                    <label for="{{ form.user_name.id_for_label }}">Imię i nazwisko rodzica(opiekuna): </label>
+                </td>
+                <td>
+                    {{ form.user_name }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.child_name.errors }}
+                    <label for="{{ form.child_name.id_for_label }}">Imię i nazwisko dziecka: </label>
+                </td>
+                <td>
+                    {{ form.child_name }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.class_name.errors }}
+                    <label for="{{ form.class_name.id_for_label }}">Nazwa grupy przedszkolnej: </label>
+                </td>
+                <td>
+                    {{ form.class_name }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.phone_number.errors }}
+                    <label for="{{ form.phone_number.id_fo_label }}">Numer telefonu rodzica(opiekuna): </label>
+                </td>
+                <td>
+                    {{ form.phone_number }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.email.errors }}
+                    <label for="{{ form.email.id_for_label }}">Adres mailowy rodzica(opiekuna): </label>
+                </td>
+                <td>
+                    {{ form.email }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form.regulations.errors }}
+                    <label for="{{ form.regulations.id_for_label }}">Potwierdzam, że zapoznałem się z <a href="regulamin.html">regulaminem</a></label>
+                </td>
+                <td>
+                  <input type="checkbox" required="True" value="{{ form.regulations }}"/>
+                   {{ form.regulations }}
+                </td>
+            </tr>
+
+        </table>
+       <button type="submit" class="button">Zapisz</button>
+    </form>
+-->
+<!--
+ {% for field in form %}
+{#    <div class="fieldWrapper">#}
+    <div>
+    {{ field.errors }}
+    </div>
+ {% endfor %}
+ -->
+
+  <form method="POST" class="empty-form">
+        {% csrf_token %}
+      <table>
+     {{ form.as_table }}
+
+  </table>
+      {{ captchaField }}
+ <button type="submit" class="button">Zapisz</button>
+
+  </form>
+</body>
+</html>
