@@ -42,7 +42,8 @@ class Kindergarten(models.Model):
     user_name = models.CharField(max_length=200, verbose_name="Imię i nazwisko rodzica(opiekuna)")
     child_name = models.CharField(max_length=200, verbose_name="Imię i nazwisko dziecka")
     class_name = models.CharField(max_length=50, verbose_name="Nazwa grupy przedszkolnej")
-    phone_number = models.CharField(max_length=9, verbose_name='Nr telefonu rodzica(opiekuna)',
+    phone_number = models.CharField(max_length=9,
+                                    verbose_name='Nr telefonu rodzica(opiekuna)',
                                     validators=[PHONE_NUMBER_REGEX])
     email = models.EmailField(max_length=254, null=True, verbose_name='Adres mailowy rodzica(opiekuna)')
     regulations = models.BooleanField(verbose_name='Potwierdzam, że zapoznałem się z regulaminem',
@@ -52,17 +53,69 @@ class Kindergarten(models.Model):
 
 # Model to the enrolling to the camps
 class Camp(models.Model):
-    user_name = models.CharField(max_length=200)
-    child_name = models.CharField(max_length=200)
-    child_pesel = models.IntegerField
-    street_address = models.CharField(max_length=200)
-    postal_code = models.IntegerField
-    city_address = models.CharField(max_length=100)
-    phone_mather = models.IntegerField
-    phone_father = models.IntegerField
-    school_name = models.CharField(max_length=255)
-    school_address = models.CharField(max_length=255)
-    interests_child = models.CharField(max_length=255)
-    information_about_child = models.TextField
-    regulations = models.BooleanField
-    data_enrol = models.DateTimeField
+    ONLY_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
+
+    parent_name = models.CharField(max_length=255, verbose_name="Imię i nazwisko rodzica/opiekuna")
+    parent_email = models.EmailField(verbose_name="Adres mailowy rodzica/opiekuna")
+    child_name = models.CharField(max_length=255, verbose_name="Imię i nazwisko dziecka")
+    child_birth_date = models.CharField(max_length=10, verbose_name="Data urodzenia (RRRR-MM-DD)")
+    child_born_city = models.CharField(max_length=100, null=True, verbose_name="Miejsce urodzenia dziecka")
+    child_pesel = models.CharField(max_length=11,
+                                   verbose_name="PESEL",
+                                   validators=[ONLY_NUMBER_REGEX])
+    street_address = models.CharField(max_length=254, verbose_name="Adres zamieszkania (ulica, nr domu, nr mieszkania)")
+    postal_code = models.CharField(max_length=6, verbose_name="Kod pocztowy")
+    city_address = models.CharField(max_length=100, verbose_name="Miejscowość")
+    phone_parent_1 = models.CharField(max_length=9,
+                                      verbose_name="Telefon kontaktowy nr 1 do rodzica/opiekuna",
+                                      validators=[ONLY_NUMBER_REGEX])
+    phone_parent_2 = models.CharField(max_length=9,
+                                      verbose_name="Telefon kontaktowy nr 2 do rodzica/opiekuna",
+                                      validators=[ONLY_NUMBER_REGEX])
+    school_name = models.CharField(max_length=255, verbose_name="Nazwa Szkoły")
+    school_address = models.CharField(max_length=255, verbose_name="Adres szkoły (ulica, kod pocztowy, miejscowość")
+    school_class = models.CharField(max_length=2, verbose_name="Klasa do której dziecko uczęszcza")
+    interests_child = models.CharField(max_length=255,
+                                       verbose_name="Zainteresowania dizecka (wymienić kilka najważniejszych "
+                                                    "oddzielając przecinkiem")
+    data_enrol = models.DateTimeField(auto_now=True)
+
+
+# Model to enroll to the day camps
+class DayCamp(models.Model):
+    ONLY_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
+
+    child_name = models.CharField(max_length=255, verbose_name="Imię i nazwisko dziecka")
+    child_pesel = models.CharField(max_length=11,
+                                   verbose_name="PESEL",
+                                   validators=[ONLY_NUMBER_REGEX])
+    child_birth_date = models.CharField(max_length=10, verbose_name="Data urodzenia (RRRR-MM-DD)")
+    parent_name = models.CharField(max_length=255, verbose_name="Imię i nazwisko rodzica/opiekuna")
+    street_address = models.CharField(max_length=254, verbose_name="Adres zamieszkania (ulica, nr domu, nr mieszkania)")
+    postal_code = models.CharField(max_length=6, verbose_name="Kod pocztowy")
+    city_address = models.CharField(max_length=100, verbose_name="Miejscowość")
+    parent_email = models.EmailField(verbose_name="Adres mailowy rodzica/opiekuna")
+    phone_parent_1 = models.CharField(max_length=9,
+                                      verbose_name="Telefon kontaktowy nr 1 do rodzica/opiekuna",
+                                      validators=[ONLY_NUMBER_REGEX])
+    phone_parent_2 = models.CharField(max_length=9,
+                                      verbose_name="Telefon kontaktowy nr 2 do rodzica/opiekuna",
+                                      validators=[ONLY_NUMBER_REGEX])
+    receiving_person_1 = models.CharField(max_length=255, verbose_name="Imię i nazwisko rodzica/opiekuna")
+    relationship_child_1 = models.CharField(max_length=255, verbose_name="Relacje z dzieckiem (dziadek, wujek, "
+                                                                         "sąsiadka)")
+    phone_receiving_1 = models.CharField(max_length=9,
+                                         verbose_name="Telefon kontaktowy do osoby upoważnionej do odbioru",
+                                         validators=[ONLY_NUMBER_REGEX])
+    receiving_person_2 = models.CharField(max_length=255, verbose_name="Imię i nazwisko rodzica/opiekuna")
+    relationship_child_2 = models.CharField(max_length=255,
+                                            verbose_name="Relacje z dzieckiem (dziadek, wujek, sąsiadka)")
+    phone_receiving_2 = models.CharField(max_length=9,
+                                         verbose_name="Telefon kontaktowy do osoby upoważnionej do odbioru",
+                                         validators=[ONLY_NUMBER_REGEX])
+    receiving_person_3 = models.CharField(max_length=255, verbose_name="Imię i nazwisko rodzica/opiekuna")
+    relationship_child_3 = models.CharField(max_length=255,
+                                            verbose_name="Relacje z dzieckiem (dziadek, wujek, sąsiadka)")
+    phone_receiving_3 = models.CharField(max_length=9,
+                                         verbose_name="Telefon kontaktowy do osoby upoważnionej do odbioru",
+                                         validators=[ONLY_NUMBER_REGEX])

@@ -26,6 +26,7 @@ SECRET_KEY = 'y5mv3(bssr4q&e30^1fj8dn(^$i1ew9s-j24_=_v^i1&8$a=(%'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+DEFAULT_CHARSET = 'utf-8'
 
 
 # Application definition
@@ -87,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'da189784_ziomk',
         'USER': 'da189784_ziomek',
-        'PASSWORD': 'KemoiZ123La',
+        'PASSWORD': 'Kemoiz123La',
         'HOST': '46.242.147.37',
         'PORT': 3306,
     }
@@ -120,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pl-pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
