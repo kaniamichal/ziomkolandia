@@ -9,6 +9,9 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://46.242.147.37:3306/da189784_ziomk</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="serverTimezone" value="Europe/Warsaw" />
+      </driver-properties>
     </data-source>
   </component>
 </project>

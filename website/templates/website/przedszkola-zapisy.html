@@ -1,0 +1,38 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Zapisy na zajęcia w przedszkolach z Ziomkolandia.pl {% endblock %}
+
+{% block content %}
+   <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Aktywna ziomkolandia - zapisy na zajęcia</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'przedszkola' %}"> Aktywna ziomkolandia <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+            <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate fadeInUp ftco-animated">
+                 <h2 class="mb-4 ml-5" style="color: green"  >Zapisując dziecko na zajęcia potwierdzasz jednocześnie, że akceptujesz treść regulaminu. </h2>
+            </div>
+			<div class="container">
+				<div class="row d-flex align-items-stretch no-gutters">
+                         <form method="POST" class="form-group">
+                                {% csrf_token %}
+                             <table>
+                             {{ form.as_table }}
+                             {{ captchaField }}
+                             </table>
+                             <button type="submit" class="btn btn-primary py-3 px-5">Zapisz</button>
+                         </form>
+                </div>
+            </div>
+    </section>
+    <br/>
+    <br/>
+
+{% endblock %}

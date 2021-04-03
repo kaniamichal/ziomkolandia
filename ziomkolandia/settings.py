@@ -9,12 +9,12 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+from django.templatetags.static import static
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 DEFAULT_CHARSET = 'utf-8'
-
 
 # Application definition
 
@@ -57,8 +56,8 @@ ROOT_URLCONF = 'ziomkolandia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        # 'DIRS': [BASE_DIR / 'website/templates']
+        'DIRS': [BASE_DIR / 'website/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ziomkolandia.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -94,9 +92,6 @@ DATABASES = {
     }
 }
 
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -114,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -135,8 +129,20 @@ CAPTCHA_TIMEOUT = '15'
 CAPTCHA_BACKGROUND_COLOR = 'white'
 CAPTCHA_FOREGROUND_COLOR = 'red'
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'info@ziomkolandia.pl'
+EMAIL_HOST = 'az0024.srv.az.pl'
+EMAIL_HOST_USER = 'noreply@ziomkolandia.pl'
+EMAIL_HOST_PASSWORD = 'Zima2021!@#'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 465
+EMAIL_SUBJECT_PREFIX = 'ZIOMKOLANDIA.PL :'
+EMAIL_USE_LOCALTIME = True
+
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "website/templates/static"]
+
+# STATIC_ROOT = [BASE_DIR, 'public', 'static', 'staticfiles']

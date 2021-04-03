@@ -1,0 +1,130 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Półkolonie i obozy</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'obozy' %}"> Półkolonie i obozy <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row">
+         <div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
+                <div class="image-popup">
+                   <img src="{% static 'images/polkolonie1.jpg'%}">
+                </div>
+           </div>
+            <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate fadeInUp ftco-animated">
+                 <h2 class="mb-4"style="color:green;"> Półkolonie na sportowo z Ziomkolandią</h2>
+                        <p>
+                           organizowane są w ramach aktywizacji najmłodszych i mają na celu rozbudzenie zainteresowań
+                            dziecka do aktywnego spędzania czasu wolnego . Naszym zamysłem jest popularyzacja różnych
+                            form aktywności ruchowej, które wspierają rozwój sprawności psychoruchowej dzieci.
+                            Podczas półkolonii harmonogram zajęć rekreacyjnych jest zróżnicowany, dzięki czemu czas
+                            spędzony na zabawie nie będzie dla dzieci monotonią.
+                        </p>
+                        <p>
+                            Aktywność ruchowa, którą proponujemy możliwa jest dzięki dostępnym w Człuchowie i okolicach
+                            obiektom sportowym m.in. parku linowego, ścianki wspinaczkowej oraz basenów rekreacyjnych.
+                            Dokładamy wszelkich starań, aby czas organizowany podczas naszych półkolonii został
+                            możliwie najbardziej aktywnie wykorzystany poprzez różne gry i zabawy ruchowe, a także
+                            inne równie ciekawe atrakcje. <br/>
+                            Działamy w myśl naszej idei:
+                            <b> <a style="color: orangered"> „Aktywni dziś – wygrywają jutro”.</a></b> <br/>
+                            Zapraszamy do skorzystania z naszej oferty!
+                        </p>
+
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
+                <div class="image-popup">
+                   <img src="{% static 'images/narty.jpg'%}">
+                </div>
+           </div>
+            <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate fadeInUp ftco-animated">
+                 <h2 class="mb-4" style="color: green"> Obozy organizowane przez Ziomkolandię </h2>
+                        <p>
+                            to dawka niezwykłej przygody. Czas wolny od szkoły to doskonały okres, aby popracować
+                            nad kondycją fizyczną. Aktywnie spędzone chwile podczas naszych obozów to niezapomniane
+                            wrażenia, nie tylko na stokach narciarskich w trakcie ferii zimowych, ale również podczas
+                            wypraw górskich, gdzie można podziwiać wspaniałe widoki. Zimą skupiamy się przede wszystkim na
+                            doskonaleniu jazdy na nartach i snowboardzie.
+                        </p>
+                        <p>
+                            „Początkujący” swoją przygodę rozpoczną od szkolenia z wykwalifikowanymi instruktorami,
+                            by później mogli już pod ich czujnym okiem doskonalić swoje umiejętności. <br/>
+                            Ci „bardziej zaawansowani” będą mieli okazję skorygować zakradające się błędy.
+                            Ich wyeliminowanie z pewnością przyczyni się do większej frajdy podczas zjazdu ze stoków.
+                        </p>
+
+            </div>
+
+        </div>
+        <p>
+                W okresie letnim organizujemy obozy, gdzie m.in. podziwiamy piękne widoki podczas pieszych
+                wycieczek po górach. Program poszczególnych obozów tworzymy pod kątem możliwości, które
+                możemy wykorzystać w danym miejscu. Staramy się uatrakcyjnić wyjazd spędzając go bardzo
+                aktywnie m.in. podczas biegów patrolowych, zjazdów na saneczkach czy odpoczynku w
+                parkach wodnych. <br/>
+                Serdecznie zapraszamy!
+        </p>
+        <p>
+        <h2 class="mb-4"> <a href="{% url 'oferta' %}" style="color: green"> Aktualna oferta półkolonii i obozów znajduje się tutaj. </a></h2>
+        </p>
+    </div>
+    </section>
+
+<br/>
+    	<section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/oboz2.jpg '%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({%  static "images/oboz2.jpg" %});">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/oboz3.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/oboz3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/polkolonie2.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/polkolonie2.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/polkolonie3.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/polkolonie3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    					</div>
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+{% endblock %}

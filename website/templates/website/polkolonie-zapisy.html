@@ -1,0 +1,45 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Zapisy na półkolonie z Ziomkolandia.pl {% endblock %}
+
+{% block content %}
+
+     <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Obóz - zapisy</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'oferta' %}"> Oferta <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pb" >
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-8 text-center heading-section ftco-animate fadeInUp ftco-animated">
+            <p> <strong> <a style="color: #ff4500" > Jeżeli chcesz zapisać dziecko na półkolonie wypełnij poniższe pola formularza.
+                Następnie wydrukuj dokument, uzupełnij pozostałe wymagane pola, podpisz i przekaż go do nas </a></strong> </p>
+            </div>
+        </div>
+    </div>
+			<div class="container">
+				<div class="row d-flex align-items-stretch no-gutters">
+
+  <form enctype="multipart/form-data" method="POST" class="empty-form">
+        {% csrf_token %}
+      <table>
+     {{ form.as_table }}
+  </table>
+      {{ captchaField }}
+ <button type="submit" class="btn btn-primary py-3 px-5">Zapisz</button>
+  </form>
+    <br/>
+    <br/>
+                </div>
+            </div>
+    </section>
+    <br/>
+{% endblock %}
