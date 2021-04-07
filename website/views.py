@@ -1,21 +1,30 @@
+import io
 import os
 
+from PyPDF2 import PdfFileReader, PdfFileWriter
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.views.generic import View, FormView, CreateView
+from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter, A4
-from django.http import FileResponse, HttpResponse, HttpResponseNotFound
-from PyPDF2 import PdfFileReader, PdfFileWriter, PdfFileMerger, pdf
-import io
 
-from reportlab.platypus import SimpleDocTemplate
+from newsletter.forms import JoinForm
+from ziomkolandia import settings
+from .forms import KidsEnroll, CampEnroll, DayCampEnroll, ContactForm
 
-from .forms import KidsEnroll, CampEnroll
 
+# def index(request):
+#      return render(request, 'website/index.html')
 
 def index(request):
+    template_name = 'website/index.html'
+    form_class = JoinForm
+    newsletter(request)
     return render(request, 'website/index.html')
 
 
@@ -30,16 +39,11 @@ def kids_enroll(request):
             return redirect('thanks')
     else:
         form = KidsEnroll()
-    return render(request, 'website/przedszkola.html', {'form': form})
-
-
-def thanks(request):
-    return render(request, 'website/thanks.html')
+    return render(request, 'website/przedszkola-zapisy.html', {'form': form})
 
 
 def kids_enroll_camp(request):
     file_path = "website/templates/static/oboz.pdf"
-    doc = SimpleDocTemplate(file_path)
     if request.method == "POST":
         form = CampEnroll(request.POST)
         if form.is_valid():
@@ -129,14 +133,14 @@ def kids_enroll_camp(request):
             page3.mergePage(changes3.getPage(0))
             output.addPage(page3)
 
-
             # with open("output.pdf", "wb") as output_stream:
             # myFile = File(output_stream)
             username = os.getenv('USER')
-            output_filename = '/home/{}/Desktop/umowa.pdf'.format(username, output).encode('UTF-8', errors='ignore').decode('UTF-8', errors='igoner')
+            output_filename = '/home/{}/Desktop/umowa.pdf'.format(username, output).encode('UTF-8',
+                                                                                           errors='ignore').decode(
+                'UTF-8', errors='igoner')
             with open(output_filename, "wb+") as out:
                 output.write(out)
-
 
             # output_stream = open("output.pdf", "wb+")
             # output.write(output_stream)
@@ -152,7 +156,6 @@ def kids_enroll_camp(request):
 
             # response = HttpResponse(output.addAttachment("output2.pdf", output_stream), content_type='application/pdf')
 
-
             # response = HttpResponse((output_stream.getvalue()), content_type='application/pdf')
             # response = HttpResponse((output_stream.getvalue()), content_type='application/pdf')
             # response['Content-Disposition'] = 'attachment; filename=umowa.pdf'
@@ -162,9 +165,229 @@ def kids_enroll_camp(request):
             # return FileResponse(output, as_attachment=True, filename="umowa.pdf")
             return redirect('thanks')
 
-
-
-
     else:
         form = CampEnroll()
-    return render(request, 'website/oboz_zapis.html', {'form': form})
+    return render(request, 'website/oboz-zapisy.html', {'form': form})
+
+
+def kids_enroll_day_camp(request):
+    file_path = "website/templates/static/polkolonie.pdf"
+    if request.method == "POST":
+        form = DayCampEnroll(request.POST)
+        if form.is_valid():
+            day_camp = form.save(commit=False)
+            day_camp.data_enrol = timezone.now()
+            child_name = form.cleaned_data['child_name']
+            child_pesel = form.cleaned_data['child_pesel']
+            child_birth_date = form.cleaned_data['child_birth_date']
+            parent_name = form.cleaned_data['parent_name']
+            street_address = form.cleaned_data['street_address']
+            postal_code = form.cleaned_data['postal_code']
+            city_address = form.cleaned_data['city_address']
+            parent_email = form.cleaned_data['parent_email']
+            phone_parent_1 = form.cleaned_data['phone_parent_1']
+            phone_parent_2 = form.cleaned_data['phone_parent_2']
+            receiving_person_1 = form.cleaned_data['receiving_person_1']
+            relationship_child_1 = form.cleaned_data['relationship_child_1']
+            phone_receiving_1 = form.cleaned_data['phone_receiving_1']
+            receiving_person_2 = form.cleaned_data['receiving_person_2']
+            relationship_child_2 = form.cleaned_data['relationship_child_2']
+            phone_receiving_2 = form.cleaned_data['phone_receiving_2']
+            receiving_person_3 = form.cleaned_data['receiving_person_3']
+            relationship_child_3 = form.cleaned_data['relationship_child_3']
+            phone_receiving_3 = form.cleaned_data['phone_receiving_3']
+
+            # camp.save()
+            # creating a contract file to camp as pdf file
+
+            pdfmetrics.registerFont(TTFont('DejaVuSans', 'DejaVuSans.ttf'))
+            buffer = io.BytesIO()
+            c = canvas.Canvas(buffer, pagesize=A4)
+            c.setFont('DejaVuSans', 10, True)
+            c.drawString(130, 580, child_name)
+            c.drawString(120, 553, child_pesel)
+            c.drawString(130, 524, child_birth_date)
+            c.drawString(130, 442, parent_name)
+            c.drawString(130, 387, street_address)
+            c.drawString(130, 359, postal_code)
+            c.drawString(230, 359, city_address)
+            c.drawString(130, 332, parent_email)
+            c.drawString(130, 303, phone_parent_1)
+            c.drawString(190, 276, phone_parent_2)
+            c.drawString(60, 159, receiving_person_1)
+            c.drawString(260, 159, relationship_child_1)
+            c.drawString(440, 159, phone_receiving_1)
+            c.drawString(60, 127, receiving_person_2)
+            c.drawString(260, 127, relationship_child_2)
+            c.drawString(440, 127, phone_receiving_2)
+            c.drawString(60, 95, receiving_person_3)
+            c.drawString(260, 95, relationship_child_3)
+            c.drawString(440, 95, phone_receiving_3)
+            c.setFont('DejaVuSans', 10, True)
+            c.showPage()
+            c.save()
+
+            buffer.seek(0)
+            changes_day_camp = PdfFileReader(buffer)
+            original = PdfFileReader(open(file_path, "rb"))
+            reader = PdfFileReader(file_path)
+            output: PdfFileWriter = PdfFileWriter()
+            page = original.getPage(0)
+            page.mergePage(changes_day_camp.getPage(0))
+            output.addPage(page)
+            output.addPage(reader.getPage(1))
+            output.addPage(reader.getPage(2))
+            output.addPage(reader.getPage(3))
+
+            # with open("output.pdf", "wb") as output_stream:
+            # myFile = File(output_stream)
+            ### savve file to desktop
+            # username = os.getenv('USER')
+            # output_filename = '/home/{}/Desktop/umowa-polkolonie.pdf'.format(username, output).encode('UTF-8',
+            #                                                                                           errors='ignore').\
+            #     decode('UTF-8', errors='ignore')
+            # with open(output_filename, "wb+") as out:
+            #     output.write(out)
+
+            # output_stream = open("output.pdf", "wb+")
+            # output.write(output_stream)
+
+            # response = HttpResponse(output, content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="umowa.pdf'
+            # output_stream.close()
+            # return response
+            # myFile.close()
+            # fs = FileSystemStorage()
+            # with fs.open(myFile) as pdf:
+
+            # response = HttpResponse((output_stream.getvalue()), content_type='application/pdf')
+            # response = HttpResponse(out, content_type='application/pdf')
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename=umowa-polkolonie.pdf'
+            output.write(response)
+            # response.write(out)
+            # return response
+            day_camp.save()
+            form = DayCampEnroll()
+
+            # # response.write(output.getValue())
+            return response, redirect('thanks')
+
+            # end
+            # return FileResponse(output, as_attachment=True) #filename="umowa2.pdf")
+            # return redirect('thanks')
+            # return redirect('thanks')
+
+    else:
+        form = DayCampEnroll()
+    return render(request, 'website/polkolonie-zapisy.html', {'form': form})
+
+
+def contact_form(request):
+    if request.method == 'GET':
+        form = ContactForm
+    else:
+        form = ContactForm(request.POST)
+        name = request.POST.get('contact_name', '')
+        subject = request.POST.get('contact_title', '')
+        email = request.POST.get('contact_email', '')
+        message = request.POST.get('content', '')
+        if form.is_valid() and email and name:
+            print(name, message)
+            send_mail(subject, message, settings.EMAIL_HOST_USER, ['info@ziomkolandia.pl'], fail_silently=False)
+            # return redirect('contact')
+            # except BadHeaderError:
+            #     return HttpResponse('Something has wrong')
+            messages.success(request, "Wiadomość została wysłana")
+            return redirect('contact')
+
+    return render(request, 'website/contact.html', {
+        'form': form,
+    })
+
+
+# newsletter
+def newsletter(request):
+    if request.method == "POST":
+        form = JoinForm(request.POST)
+        email = request.POST.get('newsletter_email', '')
+        print(email)
+        if form.is_valid():
+            join = form.save(commit=False)
+            join.newsletter_email = email
+            print(email)
+            join.newsletter_timestamp = timezone.now()
+            join.save()
+            return redirect('thanks')
+    else:
+        form = JoinForm()
+    return render(request, 'website/index.html', {'form': form})
+
+
+def thanks(request):
+    return render(request, 'website/thanks.html')
+
+
+def contact(request):
+    return render(request, 'website/contact.html')
+
+
+def przedszkola(request):
+    return render(request, 'website/przedszkola.html')
+
+
+def camps(request):
+    return render(request, 'website/obozy.html')
+
+
+def offer(request):
+    return render(request, 'website/oferta.html')
+
+
+def atractions(request):
+    return render(request, 'website/atrakcje.html')
+
+
+def eventy(request):
+    return render(request, 'website/eventy.html')
+
+
+def green(request):
+    return render(request, 'website/zielona-szkola.html')
+
+
+def crash_kader(request):
+    return render(request, 'website/atrakcje/CrashKader.html')
+
+
+def crash_runner(request):
+    return render(request, 'website/atrakcje/CrashRunner.html')
+
+
+def klocki_maxi(request):
+    return render(request, 'website/atrakcje/KoloroweKlockiMaxi.html')
+
+
+def archery_tag(request):
+    return render(request, 'website/atrakcje/ArcheryTag.html')
+
+
+def bumper_ball(request):
+    return render(request, 'website/atrakcje/BumperBall.html')
+
+
+def zjazd_klocki(request):
+    return render(request, 'website/atrakcje/ZjezdzalniaKlocki.html')
+
+
+def climbing_wall(request):
+    return render(request, 'website/atrakcje/ClimbingWall.html')
+
+
+def dmuchaniec_klocki(request):
+    return render(request, 'website/atrakcje/DmuchaniecKlocki.html')
+
+
+def poducha_wodna(request):
+    return render(request, 'website/atrakcje/PoduchaWodna.html')
+

@@ -1,11 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    Hello from django
+{% extends 'website/base.html' %}
+{% load static %}
 
-<body>
+{% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %} #}
+{%  block banner %}
+ <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image:url({% static 'images/baner_atrakcje.jpg'  %});">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Atrakcje z nami <span> nigdy nie będą identyczne</span></h1>
+            <p><a href="{% url 'atrakcje' %}" class="btn btn-secondary px-4 py-3 mt-3">Więcej...</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
 
-</body>
-</html>
+      <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Eventy - Twoje imprezy <span> firmowe i prywatne </span></h1>
+            <p><a href="{% url 'eventy' %}" class="btn btn-secondary px-4 py-3 mt-3">Więcej...</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+           <div class="slider-item" style="background-image:url({%  static 'images/przedszkola.jpg'  %} );">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Aktywni dziś <span>wygrywają jutro </span></h1>
+            <p><a href="{% url 'przedszkola' %}" class="btn btn-secondary px-4 py-3 mt-3">Więcej...</a></p>
+          </div>
+        </div>
+        </div>
+           </div>
+
+
+                <div class="slider-item" style="background-image:url({%  static 'images/obozy.jpg'  %} );">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Półkolonie i obozy na  <span>sportowo z Ziomkolandią </span></h1>
+            <p><a href="{%  url 'obozy' %}" class="btn btn-secondary px-4 py-3 mt-3">Więcej </a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+           <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-8 text-center ftco-animate">
+            <h1 class="mb-4">Zielona szkoła <span> aktywnie i edukacyjnie </span></h1>
+            <p><a href="{% url 'zielona-szkola' %}" class="btn btn-secondary px-4 py-3 mt-3">Więcej </a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    <section class="ftco-services ftco-no-pb">
+			<div class="container-wrap">
+				<div class="row no-gutters">
+          <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-primary">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-kids"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Zmiana zmiana </h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-tertiary">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            	<span class="flaticon-kids"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Special Education</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-fifth">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            	<span class="flaticon-kids"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Book &amp; Library</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-quarternary">
+            <div class="media block-6 d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+         	<span class="flaticon-kids"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Certification</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</section>
+{% endblock %}
+
+{% block content %}
+    <h1> Hello from django and new views on the website ;) :) </h1>
+{% endblock %}
+
+{% block newsletter %}
+
+  <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Newsletter!</h2>
+              <form enctype="multipart/form-data" method="POST" action="" class="subscribe-form">
+                <div class="form-group">
+                    {% csrf_token %}
+               <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
+                           placeholder="Wpisz swój adres mailowy">
+                {{ form.newsletter_email}}
+                     {% if form.is_valid %}
+                      {{ form.newsletter_email.value}}
+                        {% endif %}
+                    <button type="submit" value="Subscribe" class="form-control submit px-3"> Zapisz mnie </button>
+                </div>
+              </form>
+            </div>
+
+{% endblock %}

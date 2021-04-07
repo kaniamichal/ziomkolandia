@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h2> Dziękujemy Twoje dziecko zostało zapisane. </h2>
-</body>
-</html>
+{% extends "website/base.html" %}
+{% load static %}
+
+{% block title %} Podziękowanie za zapisanie dziecka {% endblock %}
+
+{% block content %}
+<h2> Dziękujemy Twoje dziecko zostało zapisane.</h2>
+<h3> Wydrukuj umowę, uzupełnij pozostałe wymagane pola i dostarcz ją do nas niezwłocznie :) </h3>
+{% endblock %}

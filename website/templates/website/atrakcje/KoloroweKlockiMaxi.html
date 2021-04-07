@@ -1,0 +1,201 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green;">
+            <strong> Dmuchaniec ze zjeżdżalnią Kolorowe Klocki MAXI</strong></a>
+        </h2>
+        <p>
+            <strong>Kolorowe Klocki combo MAXI </strong> to plac zabaw dla dzieci w dmuchanej odsłonie. Dmuchaniec jest
+            ogrodzony i miękki, a dzięki temu całkowicie bezpieczny. Składa się z dużej oraz małej zjeżdżalni,
+            dlatego dzieci w różnym wieku będą się na nim świetnie bawić.
+        </p>
+        <p>
+           Dmuchaniec Kolorowe Klocki MAXI świetnie sprawdzi się na piknikach rodzinnych, imprezach integracyjnych i
+            pracowniczych czy eventach innego rodzaju – w plenerze i nie tylko.
+        </p>
+       <p>
+            Ta atrakcja dmuchana ma <strong> 8 metrów długości, 8 metrów szerokości i 4,8 metra wysokości.</strong>
+            Spełnia normę bezpieczeństwa PN:EN 14960 dla nadmuchiwanego sprzętu do zabawy. <br/>
+            Do dmuchańca używamy dwóch dmuchaw 2400 W.
+        </p>
+               <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+
+    </section>
+
+<br/>
+    <section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki1.jpg '%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({%  static "images/atrakcje/klocki1.jpg" %});">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki2.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki2.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki3.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki4.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki4.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki5.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki5.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki6.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki6.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki7.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki7.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki8.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki8.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+                 <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki9.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki9.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki10.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki10.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki11.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki11.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki12.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki12.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+                 <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki13.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki13.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki14.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki14.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki15.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki15.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/klocki16.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/klocki16.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+
+{% endblock %}
