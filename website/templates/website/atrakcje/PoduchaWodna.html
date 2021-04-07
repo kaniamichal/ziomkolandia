@@ -1,0 +1,53 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green;">
+            <strong> Dmuchana poducha do skoków wodnych</strong></a>
+        </h2>
+        <p>
+            <strong> Dmuchana poducha do skoków wodnych Water Blob </strong> gwarantuje niezapomniane wrażenia zarówno
+            dzieciom, jak i młodzieży oraz dorosłym. <br/>
+            Water Blob  to dmuchaniec, z którego na pewno chętnie skorzystają osoby przebywające nad wodą. Ta prosta
+           konstrukcja zapewnia bezpieczną zabawę. Wykonana jest z trwałego materiału, odpornego na przetarcia i przebicia.
+        </p>
+        <p>
+            Poducha poducha Water blob ma <strong> 10 metrów długości i 4 metry szerokości. </strong>
+            Spełnia normę bezpieczeństwa PN:EN 14960 dla nadmuchiwanego sprzętu do zabawy.
+        </p>
+               <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+
+        <div class="ml-5">
+            <img src="{% static 'images/water_blob.jpg' %}">
+        </div>
+
+    </section>
+
+<br/>
+
+
+{% endblock %}

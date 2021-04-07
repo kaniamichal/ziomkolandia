@@ -1,0 +1,165 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green;">
+            <strong>  Bumper Ball </strong></a>
+        </h2>
+        <p>
+          <strong>Bumper Ball </strong> gwarantuje bezpieczną i udaną rozrywkę. To nadmuchiwana kula, którą możesz
+            zastosować do zabaw organizowanych na trawie, boisku czy zamkniętej hali. Regulowana uprząż w środku kuli
+            przystosowana jest dla osób różnej postury. Dlatego świetnie bawić mogą się zarówno dorośli, jak również
+            młodzież i dzieci.
+        </p>
+        <p>
+            Kule doskonale sprawdzają się w grach i zabawach zespołowych, na imprezach integracyjnych, rodzinnych,
+            podczas zabaw z przyjaciółmi. Kule wykonane są z materiału zapewniającego bezpieczeństwo podczas kontaktu
+            z przeciwnikiem, a ponadto odpornego na otarcia i przebicia.<br/>
+            <strong>Rozmiar: </strong>1,55 cm szerokości to rozmiar odpowiedni dla dorosłych oraz młodzieży. <br/>
+            <strong> Ilość: </strong> 10 sztuk
+        </p>
+       <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+       <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+      </div>
+    </section>
+
+<br/>
+    <section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper1.jpg '%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({%  static "images/atrakcje/bumper1.jpg" %});">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper2.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper2.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper3.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper4.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper4.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper5.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper5.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper6.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper6.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper7.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper7.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper8.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper8.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+                 <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper9.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper9.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper10.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper10.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper11.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper11.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/bumper12.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/bumper12.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+
+
+        </div>
+    	</div>
+    </section>
+
+{% endblock %}

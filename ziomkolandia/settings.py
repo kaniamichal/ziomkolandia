@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'website.apps.WebsiteConfig',
-    'captcha'
+    'captcha',
+    'newsletter',
 ]
 
 MIDDLEWARE = [

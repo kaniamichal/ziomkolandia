@@ -28,7 +28,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/przedszkola.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -41,7 +41,7 @@
            </div>
 
 
-                <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+                <div class="slider-item" style="background-image:url({%  static 'images/obozy.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -75,7 +75,7 @@
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-primary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            <!--		<span class="flaticon-jigsaw"></span> -->
+            		<span class="flaticon-kids"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Zmiana zmiana </h3>
@@ -86,7 +86,7 @@
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-tertiary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            	<!--	<span class="flaticon-reading"></span> -->
+            	<span class="flaticon-kids"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Special Education</h3>
@@ -97,7 +97,7 @@
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-fifth">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            <!--		<span class="flaticon-books"></span> -->
+            	<span class="flaticon-kids"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Book &amp; Library</h3>
@@ -108,7 +108,7 @@
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-quarternary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-         <!--   		<span class="flaticon-diploma"></span> -->
+         	<span class="flaticon-kids"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Certification</h3>
@@ -123,4 +123,24 @@
 
 {% block content %}
     <h1> Hello from django and new views on the website ;) :) </h1>
+{% endblock %}
+
+{% block newsletter %}
+
+  <div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Newsletter!</h2>
+              <form enctype="multipart/form-data" method="POST" action="" class="subscribe-form">
+                <div class="form-group">
+                    {% csrf_token %}
+               <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
+                           placeholder="Wpisz swój adres mailowy">
+                {{ form.newsletter_email}}
+                     {% if form.is_valid %}
+                      {{ form.newsletter_email.value}}
+                        {% endif %}
+                    <button type="submit" value="Subscribe" class="form-control submit px-3"> Zapisz mnie </button>
+                </div>
+              </form>
+            </div>
+
 {% endblock %}

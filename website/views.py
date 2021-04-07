@@ -1,26 +1,30 @@
+import io
 import os
 
-from PyPDF2.pdf import BytesIO
-from django.core.mail import EmailMessage, send_mail, BadHeaderError
+from PyPDF2 import PdfFileReader, PdfFileWriter
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.template.loader import get_template
 from django.utils import timezone
+from django.views.generic import View, FormView, CreateView
+from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
-from reportlab.lib.pagesizes import letter, A4
-from django.http import FileResponse, HttpResponse, HttpResponseNotFound
-from PyPDF2 import PdfFileReader, PdfFileWriter, PdfFileMerger, pdf
-import io
 
-from reportlab.platypus import SimpleDocTemplate
-
+from newsletter.forms import JoinForm
 from ziomkolandia import settings
 from .forms import KidsEnroll, CampEnroll, DayCampEnroll, ContactForm
 
 
+# def index(request):
+#      return render(request, 'website/index.html')
+
 def index(request):
+    template_name = 'website/index.html'
+    form_class = JoinForm
+    newsletter(request)
     return render(request, 'website/index.html')
 
 
@@ -36,14 +40,6 @@ def kids_enroll(request):
     else:
         form = KidsEnroll()
     return render(request, 'website/przedszkola-zapisy.html', {'form': form})
-
-
-def thanks(request):
-    return render(request, 'website/thanks.html')
-
-
-def contact(request):
-    return render(request, 'website/contact.html')
 
 
 def kids_enroll_camp(request):
@@ -310,6 +306,32 @@ def contact_form(request):
     })
 
 
+# newsletter
+def newsletter(request):
+    if request.method == "POST":
+        form = JoinForm(request.POST)
+        email = request.POST.get('newsletter_email', '')
+        print(email)
+        if form.is_valid():
+            join = form.save(commit=False)
+            join.newsletter_email = email
+            print(email)
+            join.newsletter_timestamp = timezone.now()
+            join.save()
+            return redirect('thanks')
+    else:
+        form = JoinForm()
+    return render(request, 'website/index.html', {'form': form})
+
+
+def thanks(request):
+    return render(request, 'website/thanks.html')
+
+
+def contact(request):
+    return render(request, 'website/contact.html')
+
+
 def przedszkola(request):
     return render(request, 'website/przedszkola.html')
 
@@ -332,3 +354,40 @@ def eventy(request):
 
 def green(request):
     return render(request, 'website/zielona-szkola.html')
+
+
+def crash_kader(request):
+    return render(request, 'website/atrakcje/CrashKader.html')
+
+
+def crash_runner(request):
+    return render(request, 'website/atrakcje/CrashRunner.html')
+
+
+def klocki_maxi(request):
+    return render(request, 'website/atrakcje/KoloroweKlockiMaxi.html')
+
+
+def archery_tag(request):
+    return render(request, 'website/atrakcje/ArcheryTag.html')
+
+
+def bumper_ball(request):
+    return render(request, 'website/atrakcje/BumperBall.html')
+
+
+def zjazd_klocki(request):
+    return render(request, 'website/atrakcje/ZjezdzalniaKlocki.html')
+
+
+def climbing_wall(request):
+    return render(request, 'website/atrakcje/ClimbingWall.html')
+
+
+def dmuchaniec_klocki(request):
+    return render(request, 'website/atrakcje/DmuchaniecKlocki.html')
+
+
+def poducha_wodna(request):
+    return render(request, 'website/atrakcje/PoduchaWodna.html')
+

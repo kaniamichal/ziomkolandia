@@ -130,16 +130,11 @@
               </ul>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-3">
-            <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Newsletter!</h2>
-              <form action="#" class="subscribe-form">
-                <div class="form-group">
-                  <input type="text" class="form-control mb-2 text-center" placeholder="Wpisz swój adres mailowy">
-                  <input type="submit" value="Subscribe" class="form-control submit px-3">
-                </div>
-              </form>
-            </div>
+            {% block newsletter %}
+        {% endblock %}
+
             <div class="ftco-footer-widget mb-5">
             	<h2 class="ftco-heading-2 mb-0">Połącz się z nami w sieci</h2>
             	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">

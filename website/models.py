@@ -84,8 +84,20 @@ class Camp(models.Model):
 
 # Model to enroll to the day camps
 class DayCamp(models.Model):
+
     ONLY_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
 
+    FIRST = 'I termin'
+    SECOND = 'II termin'
+
+    DATE_CHOICE = [
+        (FIRST, 'I termin'),
+        (SECOND, 'II termin'),
+    ]
+    date_daycamp = models.CharField(max_length=9,
+                                    choices=DATE_CHOICE,
+                                    default=FIRST,
+                                    verbose_name='Wybierz termin półkolonii')
     child_name = models.CharField(max_length=255, verbose_name="Imię i nazwisko dziecka")
     child_pesel = models.CharField(max_length=11,
                                    verbose_name="PESEL dziecka",

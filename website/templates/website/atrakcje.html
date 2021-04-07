@@ -1,6 +1,6 @@
 {% extends 'website/base.html' %}
 {% load static %}
-{% block title %} Aktywna Ziomkolandia {% endblock %}
+{% block title %} Niezapomniane atrakcje tylko z Ziomkolandia.pl {% endblock %}
 
 {% block content %}
     <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
@@ -18,229 +18,189 @@
     </section>
 
 
-		<section class="ftco-section">
-    	<div class="container">
-    		<div class="row">
-        	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Tor przeszkód CrashKader Long</h3>
-	        			<p><span class="price">PLN 5000</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/CrashKader.jpg'%});"></div>
-	        		<div class="px-4">
-	        			<p>Wymiary: 30m długość, 3,3m szerokość, 5m wysokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+    <section class="ftco-section">
+        <div class="container">
+    	    <div class="row">
+        	    <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+        			    <div>
+	        		    	<h3 class="mb-3">Tor przeszkód CrashKader Long</h3>
+	        		    	<p><span class="price">PLN 5000</span> <span class="per">/ 6h</span></p>
+	        	    	</div>
+	        	    	<div class="img" style="background-image: url({% static 'images/CrashKader.jpg'%});"></div>
+	        		    <div class="px-4">
+	        			    <p>Wymiary: 30m długość, 3,3m szerokość, 5m wysokość</p>
+        			    </div>
+        			        <p class="button text-center"><a href="{% url 'CrashKader' %}"
+                                                             class="btn btn-primary px-4 py-3">Więcej...</a></p>
+        		    </div>
+        	    </div>
 
-        	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Tor przeszkód CrashRunner</h3>
-	        			<p><span class="price">PLN 5000</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/CrashRunner.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 24m długość, 4,7m szerokość, 5,2m wysokość</p>
+        	    <div class="col-md-6 col-lg-3 ftco-animate">
+        	    	<div class="pricing-entry bg-light pb-4 text-center">
+        		    	<div>
+                            <h3 class="mb-3">Tor przeszkód CrashRunner</h3>
+                            <p><span class="price">PLN 5000</span> <span class="per">/ 6h</span></p>
+	        	    	</div>
+                        <div class="img" style="background-image: url({% static 'images/CrashRunner.jpg'%});"></div>
+                        <div class="px-4">
+	        		    	<p>Wymiary: 24m długość, 4,7m szerokość, 5,2m wysokość</p>
 
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-secondary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+        			    </div>
+        			        <p class="button text-center"><a href="{% url 'CrashRunner' %}"
+                                                             class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+        		    </div>
+        	    </div>
 
-        	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light active pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Plac zabaw Kolorowe Klocki </h3>
-	        			<p><span class="price">PLN 2200</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/Klocki_Maxi.jpg' %});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 8m długość, 8m szerokość, 5m wysokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-tertiary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+        	    <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light active pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Plac zabaw Kolorowe Klocki </h3>
+                            <p><span class="price">PLN 2200</span> <span class="per">/ 6h</span></p>
+	        		    </div>
+	        	    	<div class="img" style="background-image: url({% static 'images/Klocki_Maxi.jpg' %});"></div>
+        			    <div class="px-4">
+	        		    	<p>Wymiary: 8m długość, 8m szerokość, 5m wysokość</p>
+        		    	</div>
+        			        <p class="button text-center"><a href="{% url 'KlockiMaxi' %}"
+                                                             class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+        	    	</div>
+            	</div>
 
-                	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Archery <br/> Tag </h3>
-	        			<p><span class="price">PLN 1800</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/luki.jpg'%});"></div>
-        			<div class="px-4">
-	        		    <p>Ilość: 14 zestawów (łuki, maski) </p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-quarternary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Archery <br/> Tag </h3>
+                            <p><span class="price">PLN 1800</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/luki.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Ilość: 14 zestawów (łuki, maski) </p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'ArcheryTag' %}"
+                                                         class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
+        		    </div>
+        	    </div>
             </div>
         </div>
-        </section>
+  <br/>
 
-   <section class="ftco-section">
     	<div class="container">
     		<div class="row">
 
-                	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Bumper <br/> Ball</h3>
-	        			<p><span class="price">PLN 1600</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/Bumper_ball.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 1,55m średnica</p>
-	        			<p>Ilość: 10 sztuk</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Bumper <br/> Ball</h3>
+                            <p><span class="price">PLN 1600</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/Bumper_ball.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 1,55m średnica</p>
+                            <p>Ilość: 10 sztuk</p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'BumperBall' %}"
+                                                         class="btn btn-primary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
 
-                 	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Zjazd Kolorowe Klocki x 2</h3>
-	        			<p><span class="price">PLN 1600</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/klocki_2.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 7m długość, 4m szerokość, 6m wysokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-secondary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Zjazd Kolorowe Klocki x 2</h3>
+                            <p><span class="price">PLN 1600</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/klocki_2.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 7m długość, 4m szerokość, 6m wysokość</p>
+                        </div>
+        			<p class="button text-center"><a href="{% url 'ZjazdKolcki' %}"
+                                                     class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+        		    </div>
+        	    </div>
 
-                 	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Ścianka wspinaczkowa</h3>
-	        			<p><span class="price">PLN 1500</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/sciana.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 6m długość, 6m szerokość, 6m wysokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-tertiary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+               	<div class="col-md-6 col-lg-3 ftco-animate">
+        	    	<div class="pricing-entry bg-light pb-4 text-center">
+        		    	<div>
+	        		    	<h3 class="mb-3">Ścianka wspinaczkowa</h3>
+	        			    <p><span class="price">PLN 1500</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/sciana.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 6m długość, 6m szerokość, 6m wysokość</p>
+                        </div>
+        			        <p class="button text-center"><a href="{% url 'ClimbingWall' %}"
+                                                             class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+        		    </div>
+            	</div>
 
-
-
-        	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Plac zabaw Kolorowe Klocki</h3>
-	        			<p><span class="price">PLN 1200</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/Klocki_Mini.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 5m długość, 4m szerokość, 4m wysokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-quarternary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Plac zabaw Kolorowe Klocki</h3>
+                            <p><span class="price">PLN 1200</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/Klocki_Mini.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 5m długość, 4m szerokość, 4m wysokość</p>
+                        </div>
+                          <p class="button text-center"><a href="{% url 'DmuchaniecKlocki' %}"
+                                                           class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
+                    </div>
+                </div>
             </div>
         </div>
-        </section>
-
-    	<section class="ftco-section">
+    <br/>
     	<div class="container">
     		<div class="row">
 
-                	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Skakaniec Kolorowe Klocki</h3>
-	        			<p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/Kolorowe_klocki.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 5m długość, 4m szerokość, 5m wysokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+               	<div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Skakaniec Kolorowe Klocki</h3>
+                            <p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/Kolorowe_klocki.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 5m długość, 4m szerokość, 5m wysokość</p>
+                        </div>
+                            <p class="button text-center"><a href="{% url 'DmuchaniecKlocki' %}"
+                                                             class="btn btn-primary px-4 py-3">Więcej...</a></p>
+        		    </div>
+        	    </div>
 
 
-                	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">Dmuchana poducha Water Blob</h3>
-	        			<p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/water_blob.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Wymiary: 10m długość, 4m szerokość</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-secondary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">Dmuchana poducha Water Blob</h3>
+                            <p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/water_blob.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 10m długość, 4m szerokość</p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'PoduchaWodna' %}"
+                                                         class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+                    </div>
+                </div>
 
-                       	<div class="col-md-6 col-lg-3 ftco-animate">
-        		<div class="pricing-entry bg-light pb-4 text-center">
-        			<div>
-	        			<h3 class="mb-3">RJB - Banan, Poduchy, Narty</h3>
-	        			<p><span class="price">PLN 350</span> <span class="per">/ 1h</span></p>
-	        		</div>
-	        		<div class="img" style="background-image: url({% static 'images/lodka.jpg'%});"></div>
-        			<div class="px-4">
-	        			<p>Minimum 3h</p>
-        			</div>
-        			<p class="button text-center"><a href="#" class="btn btn-tertiary px-4 py-3">Zamów</a></p>
-        		</div>
-        	</div>
-
-
-
-        </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3">RJB - Banan, Poduchy, Narty</h3>
+                            <p><span class="price">PLN 350</span> <span class="per">/ 1h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/lodka.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Minimum 3h</p>
+                        </div>
+                            <p class="button text-center"><a href="#"
+                                                             class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
+          </div>
     	</div>
     </section>
 
-
-
-
-<br/>
-    	<section class="ftco-gallery">
-    	<div class="container-wrap">
-    		<div class="row no-gutters">
-					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/oboz2.jpg '%}"
-                           class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({%  static "images/oboz2.jpg" %});">
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/oboz3.jpg' %}"
-                           class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({% static 'images/oboz3.jpg' %});">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/polkolonie2.jpg' %}"
-                           class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({% static 'images/polkolonie2.jpg' %});">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/polkolonie3.jpg'%}"
-                           class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({% static 'images/polkolonie3.jpg' %});">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-instagram"></span>
-    					</div>
-						</a>
-					</div>
-        </div>
-    	</div>
-    </section>
 {% endblock %}

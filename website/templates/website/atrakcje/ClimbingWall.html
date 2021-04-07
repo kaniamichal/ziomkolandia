@@ -1,0 +1,133 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green;">
+            <strong> Dmuchana ścianka wspinaczkowa</strong></a>
+        </h2>
+        <p>
+            <strong>Ścianka wspinaczkowa </strong> została stworzona z myślą o rozrywce zarówno dzieci, jak i dorosłych.
+            Atrakcja spodoba się wszystkim – bez względu na wiek. Jest całkowicie bezpieczna: uczestnicy wkładają
+            specjalne uprzęże, a w razie upadku będą mieli pod sobą miękką, dmuchaną platformę.
+        </p>
+        <p>
+          Na ściankę mogą się jednocześnie wspinać dwie osoby, co jest świetnym pomysłem na połączenie zabawy z
+            rywalizacją. Wszystko to sprawia, że dmuchana ścianka wspinaczkowa świetnie sprawdzi się na
+            <strong> imprezach integracyjnych, firmowych, piknikach pracowniczych, wieczorach kawalerskich i panieńskich
+                oraz wielu innych eventach plenerowych.</strong>
+        </p>
+       <p>
+           Ścianka ma <strong> 6 metrów wysokości, a dmuchana platforma mierzy 6 x 6 metrów.</strong>
+            Spełnia normę bezpieczeństwa PN:EN 14960 dla nadmuchiwanego sprzętu do zabawy. <br/>
+            Do dmuchańca używamy jednej dmuchawy 2400 W.
+        </p>
+               <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+
+    </section>
+
+<br/>
+    <section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall1.jpg '%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({%  static "images/atrakcje/wall1.jpg" %});">
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall2.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall2.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall3.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall4.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall4.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall6.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall6.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall7.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall7.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall8.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall8.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+   <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wall5.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wall5.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+
+        </div>
+    	</div>
+    </section>
+
+{% endblock %}

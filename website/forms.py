@@ -44,3 +44,4 @@ class ContactForm(forms.Form):
     #
     #     }
    # captcha = CaptchaField(require_all_fields=True, label="Wpisz wynik działania")
+
