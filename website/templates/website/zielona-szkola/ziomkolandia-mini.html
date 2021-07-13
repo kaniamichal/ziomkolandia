@@ -1,0 +1,143 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Ziomkolandia MINI {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Zielona szkoła</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'zielona-szkola' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'oferta-zielona-szkola' %}">
+                Oferta zielona szkoła <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green"> <strong>
+           Zikolandia MINI </strong></a>
+        </h2>
+               <p>
+                   Proponowana oferta to pakiety, w ramach których organizujemy czas uczestnikom w zależności od
+                   wybranych atrakcji. (możliwość ustalenia własnych atrakcji do wyboru, wycena indywidualna)
+               </p>
+               <p>
+          <strong> Miejsce pobytu: </strong> Plaża OSIR, OSIR Człuchów – Ośrodek NATURA Bachorze.<br/>
+             <strong> Czas pobytu: </strong> 3 dni (2 noce). <br/><br/>
+
+            <strong> Atrakcje: </strong> <br/>
+               - spływ kajakowy/motorówka (banany, poduchy), <br/>
+               - dmuchane tory przeszkód, <br/>
+               - ścianka wspinaczkowa, <br/>
+               - olimpiada sportowa, <br/>
+               - bumper ball, <br/>
+               - archery tag, <br/>
+               - park linowy, <br/>
+               - mini golf. <br/>
+
+        </p>
+           </div>
+          <div class="row">
+               <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'oferta-zielona-szkola' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+
+    </section>
+
+<br/>
+    <section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+                  <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/splyw.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/splyw.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                   <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/lodka.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/lodka.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                    <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/crash11.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/crash11.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/wspinaczka.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/wspinaczka.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/scianka.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/scianka.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+				<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/bumper-ball.jpg' %}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/bumper-ball.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/archery.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/archery.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/zielona-szkola/park-linowy.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/zielona-szkola/park-linowy.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+
+
+
+
+        </div>
+    	</div>
+    </section>
+<br/>
+{% endblock %}

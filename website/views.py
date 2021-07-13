@@ -7,7 +7,6 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.views.generic import View, FormView, CreateView
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -22,9 +21,6 @@ from .forms import KidsEnroll, CampEnroll, DayCampEnroll, ContactForm
 #      return render(request, 'website/index.html')
 
 def index(request):
-    template_name = 'website/index.html'
-    form_class = JoinForm
-    newsletter(request)
     return render(request, 'website/index.html')
 
 
@@ -164,6 +160,7 @@ def kids_enroll_camp(request):
             # end
             # return FileResponse(output, as_attachment=True, filename="umowa.pdf")
             return redirect('thanks')
+            # TODO change all logic with save file and redirect to another page
 
     else:
         form = CampEnroll()
@@ -281,6 +278,7 @@ def kids_enroll_day_camp(request):
     else:
         form = DayCampEnroll()
     return render(request, 'website/polkolonie-zapisy.html', {'form': form})
+# TODO change all logic with save file and redirect to another page
 
 
 def contact_form(request):
@@ -307,21 +305,8 @@ def contact_form(request):
 
 
 # newsletter
-def newsletter(request):
-    if request.method == "POST":
-        form = JoinForm(request.POST)
-        email = request.POST.get('newsletter_email', '')
-        print(email)
-        if form.is_valid():
-            join = form.save(commit=False)
-            join.newsletter_email = email
-            print(email)
-            join.newsletter_timestamp = timezone.now()
-            join.save()
-            return redirect('thanks')
-    else:
-        form = JoinForm()
-    return render(request, 'website/index.html', {'form': form})
+# TODO move to newsletter apps
+
 
 
 def thanks(request):
@@ -388,6 +373,29 @@ def dmuchaniec_klocki(request):
     return render(request, 'website/atrakcje/DmuchaniecKlocki.html')
 
 
+def skakaniec_klocki(request):
+    return render(request, 'website/atrakcje/SkakaniecKlocki.html')
+
+
 def poducha_wodna(request):
     return render(request, 'website/atrakcje/PoduchaWodna.html')
 
+
+def motorowka(request):
+    return render(request, 'website/atrakcje/Motorowka.html')
+
+
+def offer_green(request):
+    return render(request, 'website/oferta-zielona-szkola.html')
+
+
+def green_mini(request):
+    return render(request, 'website/zielona-szkola/ziomkolandia-mini.html')
+
+
+def green_maxi(request):
+    return render(request, 'website/zielona-szkola/ziomkolandia-maxi.html')
+
+
+def green_xl(request):
+    return render(request, 'website/zielona-szkola/ziomkolandia-xl.html')

@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
     'captcha',
     'newsletter',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'ziomkolandia.context_processors.blog_latest',
+                'ziomkolandia.context_processors.join_form',
             ],
         },
     },
@@ -144,7 +148,12 @@ EMAIL_PORT = 465
 EMAIL_SUBJECT_PREFIX = 'ZIOMKOLANDIA.PL :'
 EMAIL_USE_LOCALTIME = True
 
+DATETIME_FORMAT = 'E d, Y, H'
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "website/templates/static"]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATIC_ROOT = [BASE_DIR, 'public', 'static', 'staticfiles']

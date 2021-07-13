@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
-urlpatterns = (
+import blog.views
+
+urlpatterns = [
     path('', include('website.urls')),
+    path('', include('blog.urls')),
     path('admin/', admin.site.urls),
     path('captcha/', include('captcha.urls')),
-)
+    # path('blog/', blog.views.blog, name='blog'),
+    # path('post/<int:pk>/', blog.views.post_detail, name='post_detail'),
+    # path('replay_comment/', blog.views.replay_comment, name='replay_comment'),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
