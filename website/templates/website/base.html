@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -27,15 +26,15 @@
     <link rel="stylesheet" href="{%  static 'css/flaticon.css' %}" >
     <link rel="stylesheet" href="{%  static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{%  static 'css/style.css' %}" >
+    <link rel="stylesheet" href="{%  static 'cookielaw/css/cookielaw.css' %}" >
+
   </head>
   <body>
 
-<div id="CookielawBanner">
-   {% load cookielaw_tags %}
-        {% cookielaw_banner %}
+{% load cookielaw_tags %}
+{% if cookielaw.notset %}{% rejectable_cookielaw_banner %}{% endif %}
 
 
-</div>
 
 
 	  <div class="py-2 bg-primary">
@@ -68,13 +67,13 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-                <li class="nav-item "><a href="{%  url 'index' %}" class="nav-link pl-0" style="color: green"> <strong> O nas </strong></a></li>
-	            <li class="nav-item"><a href="{% url 'atrakcje' %}" class="nav-link" style="color: green"> <strong> Dmuchańce i atrakcje </strong></a></li>
-	        	<li class="nav-item"><a href="{% url 'eventy' %}" class="nav-link" style="color: green"><strong>Eventy</strong></a></li>
-                <li class="nav-item"><a href="{% url 'przedszkola' %}" class="nav-link" style="color: green"><strong> Zajęcia w przedszkolach </strong></a></li>
-                <li class="nav-item"><a href="{% url 'obozy' %}" class="nav-link" style="color: green"><strong> Półkolonie i obozy</strong></a></li>
-                <li class="nav-item"><a href="{% url 'zielona-szkola' %}" class="nav-link" style="color: green;"><strong> Zielona szkoła </strong></a></li>
-	            <li class="nav-item"><a href="{% url 'kontakt' %}" class="nav-link" style="color: green"><strong> Kontakt </strong></a></li>
+                <li class="nav-item "><a href="{%  url 'index' %}" class="nav-link pl-0"> <strong> O nas </strong></a></li>
+	            <li class="nav-item"><a href="{% url 'atrakcje' %}" class="nav-link"> <strong> Dmuchańce i atrakcje </strong></a></li>
+	        	<li class="nav-item"><a href="{% url 'eventy' %}" class="nav-link"><strong>Eventy</strong></a></li>
+                <li class="nav-item"><a href="{% url 'przedszkola' %}" class="nav-link"><strong> Zajęcia w przedszkolach </strong></a></li>
+                <li class="nav-item"><a href="{% url 'obozy' %}" class="nav-link"><strong> Półkolonie i obozy</strong></a></li>
+                <li class="nav-item"><a href="{% url 'zielona-szkola' %}" class="nav-link"><strong> Zielona szkoła </strong></a></li>
+	            <li class="nav-item"><a href="{% url 'kontakt' %}" class="nav-link"><strong> Kontakt </strong></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -214,6 +213,7 @@
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAKZnDA2PuJ8cgCFmEiO--gBJlKj76vWQ&callback=initMap&libraries=&v=weekly"></script> -->
   <script src="{%  static 'js/google-map.js'%}"></script>
   <script src="{%  static 'js/main.js'%}"></script>
+  <script src="{%  static 'cookielaw/js/cookielaw.js'%}"></script>
 
   </body>
 </html>
