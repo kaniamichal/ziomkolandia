@@ -1,10 +1,10 @@
 {% extends 'website/base.html' %}
 {% load static %}
 
-{% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %} #}
+{% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %}
 {%  block banner %}
  <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url({% static 'images/baner_atrakcje.jpg'  %});">
+      <div class="slider-item" style="background-image:url({% static 'images/dmuchance.jpg'  %});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+      <div class="slider-item" style="background-image:url({%  static 'images/eventyfirmowe.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/przedszkola.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/aktywnaziomkolandia.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -41,7 +41,7 @@
            </div>
 
 
-                <div class="slider-item" style="background-image:url({%  static 'images/obozy.jpg'  %} );">
+                <div class="slider-item" style="background-image:url({%  static 'images/obozy-polkolonie.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/zieloneszkoly.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -64,10 +64,7 @@
         </div>
         </div>
       </div>
-
-
-
-    </section>
+   </section>
 
     <section class="ftco-services ftco-no-pb">
 			<div class="container-wrap">
@@ -75,54 +72,477 @@
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-primary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-kids"></span>
+
+                   <span class="flaticon-diploma"></span>
               </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Zmiana zmiana </h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+
+               <div class="media-body p-2 mt-3">
+   {% for post in latest_post_pos4 %}
+
+{{ post.title }}
+        <div class="block-21 mb-4 d-flex">
+     <a class="blog-img" style="background-image:  url({{  post.images.url  }})"></a></div>
+
+            {% endfor %}
               </div>
             </div>
           </div>
-          <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-tertiary">
+
+     <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-tertiary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            	<span class="flaticon-kids"></span>
+            	<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Special Education</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                     {% for post in latest_post_pos3 %}
+                    <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
               </div>
+
             </div>
           </div>
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-fifth">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            	<span class="flaticon-kids"></span>
+            	<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Book &amp; Library</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                      {% for post in latest_post_pos2 %}
+                    <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
               </div>
             </div>
           </div>
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-quarternary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-         	<span class="flaticon-kids"></span>
+         	<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Certification</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                      {% for post in latest_post_pos1 %}
+                    <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white" >  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
+             </div>
+            </div>
+          </div>
+        </div>
+                </div>
+		</section>
+
+{% endblock %}
+
+{% block content %}
+
+    	<section class="ftco-section ftco-no-pt ftc-no-pb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
+						<div class="text px-4 ftco-animate">
+	          	<h2 class="mb-4">Jakaś grafika może?</h2>
+							<p></p>
+							<p><a href="#" class="btn btn-secondary px-4 py-3">Read More</a></p>
+						</div>
+					</div>
+					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+          	<h2 class="mb-4">Oferujemy:</h2>
+						<p>Tu coś jeszcze chcesz dodać??????? </p>
+						<div class="row mt-5">
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'atrakcje' %}">Atrakcje</a></h3>
+										<p>dla młodszych i starszych.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'obozy' %}">Obozy i półkolonie</a> </h3>
+										<p>Letnie i zimowe</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+                                        <h3><a href="{% url 'zielona-szkola' %}">Zielone szkoły </a></h3>
+										<p> Edukację na wesoło</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'eventy' %}">Eventy</a> </h3>
+										<p>które nigdy nie są nudne</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'przedszkola' %}">Zajęcia w przedszkolach</a> </h3>
+										<p>Kreatywne zajęcia dla najmłodszych</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+                                        <h3><a href="{% url 'Motorowka' %}"> Atrakcje nad wodną</a></h3>
+										<p>Plaża OSIR Człuchów</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<section class="ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %});"
+             data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<h2>Zapisz dziecko na zajęcia w przedszkolach </h2>
+					</div>
+					<div class="col-md-3 d-flex align-items-center">
+						<p class="mb-0"><a href="{% url 'kids_enroll' %}" class="btn btn-secondary px-4 py-3">
+                            Ziomkolandia - zapisy</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4"><span>Najczęściej </span> wybierane</h2>
+            <p>Poniżej przedstawiamy najpopularniejsze nasze działania</p>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/course-1.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'obozy' %}">Półkolonie i obozy</a></h3>
+							<p class="subheading"><span>Termin:</span> lato i zima</p>
+							<p>Każdego roku latem i zimą organizujemy niezapomniane półkolonie i obozy pełne ciekawych
+                                atrakcji. Obozy zawsze organizujemy w różnych regionach naszego kraju.</p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/course-2.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'zielona-szkola' %}">Zielone szkoły</a></h3>
+							<p class="subheading"><span>Termin:</span> rok szkolny</p>
+							<p>Zapraszamy na pełne niezapomnianych przygód wycieczki dla szkół.
+                                Zapoznaj się z naszą ofertą i skontaktuj się już dziś. </p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/course-3.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'eventy' %}">Imprezy firmowe i prywatne</a></h3>
+							<p class="subheading"><span>Termin:</span> 365 dni w roku</p>
+							<p>Organizujemy wyjątkowe imprezy dla dzieci, zarówno te organizowane przez firmy jak i
+                                indywidualnie przez rodziców. Skontaktuj się z nami - doradzimy. </p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/course-4.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'atrakcje' %}">Dmuchańce i atrakcje</a></h3>
+							<p class="subheading"><span>Termin:</span> 365 dni w roku</p>
+							<p>Organizujesz imprezę i brakuje Ci atrakcji? Świetnie trafiłeś - zapoznaj się z naszą
+                                ofertą a o imprezie będzie głośno przez długi czas. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+    	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static 'images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section heading-section-black ftco-animate">
+            <h2 class="mb-4"><span>Ponad 10 lat </span> doświadczenia</h2>
+            <p>w uszczęśliwianiu dzieci w różnym wieku </p>
+          </div>
+        </div>
+    		<div class="row d-md-flex align-items-center justify-content-center">
+    			<div class="col-lg-10">
+    				<div class="row d-md-flex align-items-center">
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="1200">0</strong>
+		                <span>Uśmiechniętych dzieci</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="2400">0</strong>
+		                <span>Zadowolonych rodziców</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="3600">0</strong>
+		                <span>Uśmiechniętych buziek</span>
+		              </div>
+		            </div>
+		          </div>
+	          </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+        <section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4"><span>Co mówią </span> o nas inni</h2>
+            <p>Coś chcesz dodać????? </p>
+          </div>
+        </div>
+        <div class="row ftco-animate justify-content-center">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel">
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-1.jpg' %})">
+                  </div>
+                  <div class="text ml-2 bg-light">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Racky Henderson</p>
+                    <span class="position">Father</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-2.jpg' %})">
+                  </div>
+                  <div class="text ml-2 bg-light">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Henry Dee</p>
+                    <span class="position">Mother</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-3.jpg'  %})">
+                  </div>
+                  <div class="text ml-2 bg-light">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Mark Huff</p>
+                    <span class="position">Mother</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-4.jpg'  %})">
+                  </div>
+                  <div class="text ml-2 bg-light">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Rodel Golez</p>
+                    <span class="position">Mother</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap d-flex">
+                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-1.jpg'  %})">
+                  </div>
+                  <div class="text ml-2 bg-light">
+                  	<span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Ken Bosh</p>
+                    <span class="position">Mother</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+ <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image:
+         url({% static 'images/bg_5.jpg' %});" data-stellar-background-ratio="0.5">
+    	<div class="container">
+    		<div class="row justify-content-end">
+    			<div class="col-md-6 py-5 px-md-5 bg-primary">
+	          <div class="heading-section heading-section-white ftco-animate mb-5">
+	            <h2 class="mb-4">Szybki kontakt</h2>
+	            <p>Napisz do nas - odpowiemy tak szybko jak to możliwe.</p>
+	          </div>
+	          <form action="#" class="appointment-form ftco-animate">
+	    				<div class="d-md-flex">
+		    				<div class="form-group">
+		    					<input type="text" class="form-control" placeholder="First Name">
+		    				</div>
+		    				<div class="form-group ml-md-4">
+		    					<input type="text" class="form-control" placeholder="Last Name">
+		    				</div>
+	    				</div>
+	    				<div class="d-md-flex">
+	    					<div class="form-group">
+		    					<div class="form-field">
+          					<div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                      	<option value="">Select Your Course</option>
+                        <option value="">Art Lesson</option>
+                        <option value="">Language Lesson</option>
+                        <option value="">Music Lesson</option>
+                        <option value="">Sports</option>
+                        <option value="">Other Services</option>
+                      </select>
+                    </div>
+		              </div>
+		    				</div>
+	    					<div class="form-group ml-md-4">
+		    					<input type="text" class="form-control" placeholder="Phone">
+		    				</div>
+	    				</div>
+	    				<div class="d-md-flex">
+	    					<div class="form-group">
+		              <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
+		            </div>
+		            <div class="form-group ml-md-4">
+		              <input type="submit" value="Request A Quote" class="btn btn-secondary py-3 px-4">
+		            </div>
+	    				</div>
+	    			</form>
+    			</div>
+        </div>
+    	</div>
+    </section>
+
+    	<section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4"><span>Aktualności</span> Blog</h2>
+            <p>Chcesz coś tu dodać????? </p>
+          </div>
+        </div>
+				<div class="row">
+                    {%  for post in latest_post3 %}
+          <div class="col-md-6 col-lg-4 ftco-animate">
+            <div class="blog-entry">
+
+              <a href="{% url 'post_detail' pk=post.pk %}" class="block-20 d-flex align-items-end" style="background-image:
+             url({{  post.images.url  }})">
+								<div class="meta-date text-center p-2">
+                  <span class="day">{{ post.publish_date|date:'d'}}</span>
+                  <span class="mos">{{ post.publish_date|date:'E'}}</span>
+                  <span class="yr">{{ post.publish_date|date:'Y'}}</span>
+                </div>
+              </a>
+              <div class="text bg-white p-4">
+                  <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                  <p>{{ post.text|truncatewords:18|linebreaksbr }}.</p>
+                <div class="d-flex align-items-center mt-4">
+	                <p class="mb-0"><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">
+                        Czytaj więcej <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="ml-auto mb-0">
+	                	<a href="#" class="mr-2">{{ post.author }}</a>
+	                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+                    {% endfor %}
+                </div>
 			</div>
 		</section>
-{% endblock %}
 
-{% block content %}
-    <h1> Hello from django and new views on the website ;) :) </h1>
+		<section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="images/image_1.jpg" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/course-1.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="images/image_2.jpg" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/image_2.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="images/image_3.jpg" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/image_3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="images/image_4.jpg" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/image_4.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+        </div>
+    	</div>
+    </section>
+
 {% endblock %}
 
 {% block newsletter %}

@@ -28,13 +28,18 @@
 			<div class="container">
 				<div class="row d-flex align-items-stretch no-gutters">
 
-  <form enctype="multipart/form-data" method="POST" class="empty-form">
+  <form enctype="multipart/form-data" method="POST" class="subscribe-form" id="enroll">
+
         {% csrf_token %}
+
       <table>
-     {{ form.as_table }}
+
+          {{ form.as_table }}
   </table>
+
       {{ captchaField }}
- <button type="submit" class="btn btn-primary py-3 px-5">Zapisz</button>
+ <button type="submit" class="submit btn btn-primary py-3 px-5" id="submit">Zapisz</button>
+ <button type="reset" class="submit btn btn-secondary py-3 px-5" id="reset">Wyczyść</button>
   </form>
     <br/>
     <br/>
@@ -42,4 +47,5 @@
             </div>
     </section>
     <br/>
+
 {% endblock %}

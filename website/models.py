@@ -51,6 +51,9 @@ class Kindergarten(models.Model):
                                       validators=[validate_regulations])
     data_enrol = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.kinder_name + ' | ' + self.user_name + ' | ' + str(self.data_enrol)
+
 
 # Model to the enrolling to the camps
 class Camp(models.Model):
@@ -81,10 +84,12 @@ class Camp(models.Model):
                                                     "oddzielając przecinkiem) ")
     data_enrol = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.child_name + ' | ' + self.city_address + ' | ' + str(self.data_enrol)
+
 
 # Model to enroll to the day camps
 class DayCamp(models.Model):
-
     ONLY_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
 
     FIRST = 'I termin'
@@ -127,22 +132,38 @@ class DayCamp(models.Model):
                                          validators=[ONLY_NUMBER_REGEX])
     receiving_person_2 = models.CharField(max_length=255,
                                           null=True,
-                                          verbose_name="Imię i nazwisko osoby upoważnionej do dobioru dziecka")
+                                          verbose_name="Imię i nazwisko osoby upoważnionej do dobioru dziecka",
+                                          default='-----',
+                                          help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian")
     relationship_child_2 = models.CharField(max_length=255,
                                             null=True,
-                                            verbose_name="Relacje z dzieckiem (dziadek, wujek, sąsiadka)")
+                                            verbose_name="Relacje z dzieckiem (dziadek, wujek, sąsiadka)",
+                                            default='-----',
+                                            help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian")
     phone_receiving_2 = models.CharField(max_length=9,
                                          null=True,
                                          verbose_name="Telefon kontaktowy do osoby upoważnionej do odbioru",
-                                         validators=[ONLY_NUMBER_REGEX])
+                                         validators=[ONLY_NUMBER_REGEX],
+                                         default='-----',
+                                         help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian")
     receiving_person_3 = models.CharField(max_length=255,
                                           null=True,
-                                          verbose_name="Imię i nazwisko osoby upoważnionej do dobioru dziecka")
+                                          verbose_name="Imię i nazwisko osoby upoważnionej do dobioru dziecka",
+                                          default='-----',
+                                          help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian")
     relationship_child_3 = models.CharField(max_length=255,
                                             null=True,
-                                            verbose_name="Relacje z dzieckiem (dziadek, wujek, sąsiadka)")
+                                            verbose_name="Relacje z dzieckiem (dziadek, wujek, sąsiadka)",
+                                            default='-----',
+                                            help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian")
     phone_receiving_3 = models.CharField(max_length=9,
                                          null=True,
                                          verbose_name="Telefon kontaktowy do osoby upoważnionej do odbioru",
-                                         validators=[ONLY_NUMBER_REGEX])
+                                         validators=[ONLY_NUMBER_REGEX],
+                                         default='-----',
+                                         help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian",)
     data_enrol = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.date_daycamp) + ' | ' + self.child_name + ' | ' + self.city_address + ' | ' + str(
+            self.data_enrol)

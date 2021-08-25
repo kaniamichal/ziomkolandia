@@ -25,6 +25,8 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('admin/', admin.site.urls),
     path('captcha/', include('captcha.urls')),
+
+
     # path('blog/', blog.views.blog, name='blog'),
     # path('post/<int:pk>/', blog.views.post_detail, name='post_detail'),
     # path('replay_comment/', blog.views.replay_comment, name='replay_comment'),

@@ -21,6 +21,22 @@ class CampEnroll(ModelForm):
 
 
 class DayCampEnroll(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(DayCampEnroll, self).__init__(*args, **kwargs)
+        self.fields['receiving_person_2'].required = False
+        self.fields['receiving_person_2'].initial = '-----'
+        self.fields['relationship_child_2'].required = False
+        self.fields['relationship_child_2'].initial = '-----'
+        self.fields['phone_receiving_2'].required = False
+        self.fields['phone_receiving_2'].initial = '-----'
+        self.fields['receiving_person_3'].required = False
+        self.fields['receiving_person_3'].initial = '-----'
+        self.fields['relationship_child_3'].required = False
+        self.fields['relationship_child_3'].initial = '-----'
+        self.fields['phone_receiving_3'].required = False
+        self.fields['phone_receiving_3'].initial = '-----'
+
     captcha = CaptchaField(label="Wpisz wynik działania")
 
     class Meta:
@@ -43,5 +59,4 @@ class ContactForm(forms.Form):
     #         'content': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Treść wiadoości'}),
     #
     #     }
-   # captcha = CaptchaField(require_all_fields=True, label="Wpisz wynik działania")
-
+# captcha = CaptchaField(require_all_fields=True, label="Wpisz wynik działania")

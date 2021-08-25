@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -27,6 +29,14 @@
     <link rel="stylesheet" href="{%  static 'css/style.css' %}" >
   </head>
   <body>
+
+<div id="CookielawBanner">
+   {% load cookielaw_tags %}
+        {% cookielaw_banner %}
+
+
+</div>
+
 
 	  <div class="py-2 bg-primary">
     	<div class="container">
@@ -64,7 +74,7 @@
                 <li class="nav-item"><a href="{% url 'przedszkola' %}" class="nav-link" style="color: green"><strong> Zajęcia w przedszkolach </strong></a></li>
                 <li class="nav-item"><a href="{% url 'obozy' %}" class="nav-link" style="color: green"><strong> Półkolonie i obozy</strong></a></li>
                 <li class="nav-item"><a href="{% url 'zielona-szkola' %}" class="nav-link" style="color: green;"><strong> Zielona szkoła </strong></a></li>
-	            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link" style="color: green"><strong> Kontakt </strong></a></li>
+	            <li class="nav-item"><a href="{% url 'kontakt' %}" class="nav-link" style="color: green"><strong> Kontakt </strong></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -99,7 +109,7 @@
                      {% for post in latest_post %}
               <div class="block-21 mb-4 d-flex">
 
-               <a class="blog-img mr-4" style="background-image:  url({{  post.images.url  }});"></a>
+               <a class="blog-img mr-4" style="background-image:  url({{  post.images.url  }})"></a>
                   <div class="text">
                   <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}">  {{ post.title }}</a></h3>
                   <div class="meta">
@@ -124,7 +134,7 @@
                 <li><a href="{% url 'eventy' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Eventy - oferta</a></li>
                 <li><a href="{% url 'oferta' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Obozy - oferta</a></li>
                 <li><a href="{% url 'oferta-zielona-szkola' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Zielona szkoła - oferta</a></li>
-                <li><a href="{% url 'contact' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Kontakt</a></li>
+                <li><a href="{% url 'kontakt' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Kontakt</a></li>
               </ul>
             </div>
           </div>
@@ -161,8 +171,25 @@
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
+
         </div>
       </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+<p>
+          {% if messages %}
+
+                      {% for message in messages %}
+                   {{ message }}
+                    {% endfor %}
+
+                  {% endif %}
+          </p>
+          </div>
+        </div>
+
+
+
     </footer>
 
 

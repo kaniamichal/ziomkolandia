@@ -13,6 +13,7 @@ import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import STATIC_ROOT
 from django.templatetags.static import static
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,12 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+   # 'django.contrib.sites',
     'django.contrib.staticfiles',
     'django_extensions',
+    'sorl.thumbnail',
+    'tinymce',
     'website.apps.WebsiteConfig',
     'captcha',
     'newsletter',
     'blog',
+    'cookielaw',
 ]
 
 MIDDLEWARE = [
@@ -70,11 +75,18 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'ziomkolandia.context_processors.blog_latest',
+                'ziomkolandia.context_processors.blog_latest_pos4',
+                'ziomkolandia.context_processors.blog_latest_pos3',
+                'ziomkolandia.context_processors.blog_latest_pos2',
+                'ziomkolandia.context_processors.blog_latest_pos1',
+                'ziomkolandia.context_processors.blog_latest3',
                 'ziomkolandia.context_processors.join_form',
+                'cookielaw.context_processors.cookielaw',
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'ziomkolandia.wsgi.application'
 
@@ -119,21 +131,28 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
+# newsletter
+NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
+NEWSLETTER_CONFIRM_EMAIL = True
+NEWSLETTER_CONFIRM_EMAIL_SUBSCRIBE = True
+NEWSLETTER_CONFIRM_EMAIL_UNSUBSCRIBE = True
+NEWSLETTER_CONFIRM_EMAIL_UPDATE = True
+NEWSLETTER_RICHTEXT_WIDGET = "tinymce.widgets.TinyMCE"
+
 LANGUAGE_CODE = 'pl-pl'
 
 TIME_ZONE = 'Europe/Warsaw'
+USE_TZ = False
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
-
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
 CAPTCHA_MATH_CHALLENGE_OPERATOR = '+'
 CAPTCHA_TIMEOUT = '15'
 CAPTCHA_BACKGROUND_COLOR = 'white'
-CAPTCHA_FOREGROUND_COLOR = 'red'
+CAPTCHA_FOREGROUND_COLOR = 'black'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -143,7 +162,7 @@ DEFAULT_FROM_EMAIL = 'info@ziomkolandia.pl'
 EMAIL_HOST = 'az0024.srv.az.pl'
 EMAIL_HOST_USER = 'noreply@ziomkolandia.pl'
 EMAIL_HOST_PASSWORD = 'Zima2021!@#'
-EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 EMAIL_PORT = 465
 EMAIL_SUBJECT_PREFIX = 'ZIOMKOLANDIA.PL :'
 EMAIL_USE_LOCALTIME = True
@@ -157,3 +176,23 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATIC_ROOT = [BASE_DIR, 'public', 'static', 'staticfiles']
+
+# anothe settings for newsletter
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "path/to/tiny_mce/tiny_mce.js")
+# TINYMCE_JS_ROOT = os.path.join(STATIC_ROOT, "path/to/tiny_mce")
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "960px",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+               "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+               "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+               "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+               "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+               "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "language": "pl-pl",  # To force a specific language instead of the Django current language.
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
