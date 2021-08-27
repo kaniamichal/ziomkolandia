@@ -16,14 +16,14 @@ class Kindergarten(models.Model):
     NO = 'NO'
     DEBRZNO = 'Przedszkole w Debrznie'
     WIERZCHOWO = 'Przedszkole w Wierzchowie Człuwoskim'
-    JACEKAGATKA = 'Przedszkole Jacka i Agatki w Człuchowie'
+    JACEKAGATKA = 'Przedszkole im. Jacka i Agatki w Człuchowie'
     BAJKA = 'Przedszkole Bajka w Człuchowie'
     SMYK = 'Przedszkole Smyk w Człuchowie'
     PIANO = 'Przedszkole Piano w Człuchowie'
     KINDER_NAME_CHOICES = [
         (DEBRZNO, "Przedszkole w Debrznie"),
         (WIERZCHOWO, 'Przedszkole w Wierzchowie Człuwoskim'),
-        (JACEKAGATKA, 'Przedszkole Jacka i Agatki w Człuchowie'),
+        (JACEKAGATKA, 'Przedszkole im. Jacka i Agatki w Człuchowie'),
         (BAJKA, 'Przedszkole Bajka w Człuchowie'),
         (SMYK, 'Przedszkole Smyk w Człuchowie'),
         (PIANO, 'Przedszkole Piano w Człuchowie'),

@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
-    path('blog/', views.blog, name='blog'),
+    path('aktualnosci', views.aktualnosci, name='aktualnosci'),
     path('replay_comment/', views.replay_comment, name='replay_comment'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \

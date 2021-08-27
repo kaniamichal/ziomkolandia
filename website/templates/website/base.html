@@ -104,7 +104,7 @@
 
           <div class="col-md-6 col-lg-3">
             <div class="ftco-footer-widget mb-5">
-              <h2 class="ftco-heading-2">Ostatnie wpisy </h2>
+              <h2 class="ftco-heading-2">Aktualności </h2>
                      {% for post in latest_post %}
               <div class="block-21 mb-4 d-flex">
 
@@ -122,13 +122,12 @@
             </div>
 
           </div>
-
+<!-- footer -->
           <div class="col-md-6 col-lg-3">
             <div class="ftco-footer-widget mb-5 ml-md-4">
-              <h2 class="ftco-heading-2">Links</h2>
+              <h2 class="ftco-heading-2">Przydatne linki</h2>
               <ul class="list-unstyled">
                 <li><a href="{% url 'index' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Strona główna</a></li>
-                <li><a href="{% url 'blog' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Blog</a></li>
                 <li><a href="{% url 'atrakcje' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Atrakcje - oferta</a></li>
                 <li><a href="{% url 'eventy' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Eventy - oferta</a></li>
                 <li><a href="{% url 'oferta' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Obozy - oferta</a></li>
@@ -141,11 +140,11 @@
           <div class="col-md-6 col-lg-3">
 
 <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Newsletter!</h2>
+            	<h2 class="ftco-heading-2">Newsletter</h2>
               <form enctype="multipart/form-data" method="POST" action="" class="subscribe-form">
                 <div class="form-group">
                     {% csrf_token %}
-   <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
+              <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
                            placeholder="Wpisz swój adres mailowy">
 {#                {{ form.newsletter_email}}#}
                      {% if form.is_valid %}
@@ -193,7 +192,9 @@
 
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
   <script src="{%  static 'js/jquery.min.js' %}"></script>

@@ -46,18 +46,18 @@ def comments_detail(request, pk):
     return render(request, 'website/replay_comment.html', {'comment': com})
 
 
-def blog(request):
+def aktualnosci(request):
     posts = Post.objects.filter(publish_date__lte=timezone.now()).order_by('-created_date')[:12]
     paginator = Paginator(posts, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'website/blog.html', {'posts': posts, 'page_obj': page_obj})
+    return render(request, 'website/aktualnosci.html', {'posts': posts, 'page_obj': page_obj})
 
 
 
 # def blog(request):
 #     posts = Post.objects.filter(publish_date__lte=timezone.now()).order_by('-created_date')
-#     return render(request, 'website/blog.html', {'posts': posts})
+#     return render(request, 'website/aktualnosci.html', {'posts': posts})
 
 
 # comments

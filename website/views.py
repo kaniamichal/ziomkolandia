@@ -341,6 +341,10 @@ def motorowka(request):
     return render(request, 'website/atrakcje/Motorowka.html')
 
 
+def snooker(request):
+    return render(request, 'website/atrakcje/GigaPilkarzyki.html')
+
+
 def offer_green(request):
     return render(request, 'website/oferta-zielona-szkola.html')
 
@@ -355,3 +359,4 @@ def green_maxi(request):
 
 def green_xl(request):
     return render(request, 'website/zielona-szkola/ziomkolandia-xl.html')
+

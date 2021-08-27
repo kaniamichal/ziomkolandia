@@ -11,7 +11,7 @@
             <h1 class="mb-2 bread">{{ post.title }}</h1>
               <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
                   <i class="ion-ios-arrow-forward"></i></a></span>
-                  <span> <a href="{% url 'blog' %}"> Blog <i class="ion-ios-arrow-forward"></i></a></span>
+                  <span> <a href="{% url 'aktualnosci' %}"> Blog <i class="ion-ios-arrow-forward"></i></a></span>
                   <span> <a href="#"> Blog single<i class="ion-ios-arrow-forward"></i></a></span>
               </p>
           </div>
@@ -41,6 +41,7 @@
   </div>
 
     <!-- comments list  -->
+            <!--
 <div class="pt-5 mt-5">
     <h3 class="mb-5 h4 font-weight-bold">Komentarze</h3>
      {% for comment in post.comments.all %}
@@ -94,6 +95,7 @@
                 </form>
               </div>
             </div>
-
+-->
+            </div>
  </section>
 {% endblock %}

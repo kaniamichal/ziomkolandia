@@ -4,7 +4,7 @@
 {% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %}
 {%  block banner %}
  <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url({% static 'images/dmuchance.jpg'  %});">
+      <div class="slider-item" style="background-image:url({% static 'images/dmuchnce.jpg'  %});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url({%  static 'images/eventyfirmowe.jpg'  %} );">
+      <div class="slider-item" style="background-image:url({%  static 'images/eventy.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/aktywnaziomkolandia.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/zajecia.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -41,7 +41,7 @@
            </div>
 
 
-                <div class="slider-item" style="background-image:url({%  static 'images/obozy-polkolonie.jpg'  %} );">
+                <div class="slider-item" style="background-image:url({%  static 'images/obozy.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/zieloneszkoly.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/zielone.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -78,11 +78,13 @@
 
                <div class="media-body p-2 mt-3">
    {% for post in latest_post_pos4 %}
-
+<!--
 {{ post.title }}
         <div class="block-21 mb-4 d-flex">
      <a class="blog-img" style="background-image:  url({{  post.images.url  }})"></a></div>
-
+-->
+        <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
             {% endfor %}
               </div>
             </div>
@@ -141,9 +143,15 @@
 				<div class="row">
 					<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
 						<div class="text px-4 ftco-animate">
-	          	<h2 class="mb-4">Jakaś grafika może?</h2>
-							<p></p>
-							<p><a href="#" class="btn btn-secondary px-4 py-3">Read More</a></p>
+	          <!--	<h2 class="mb-4">Jakaś grafika może?</h2> -->
+
+                    <div class="image-popup">
+                   <img src="{% static 'images/oboz.jpg'%}">
+                    </div>
+
+
+
+						<!--	<p><a href="#" class="btn btn-secondary px-4 py-3">Read More</a></p> -->
 						</div>
 					</div>
 					<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
@@ -206,7 +214,7 @@
                                         <span class="flaticon-diploma"></span></div>
 									<div class="text">
                                         <h3><a href="{% url 'Motorowka' %}"> Atrakcje nad wodną</a></h3>
-										<p>Plaża OSIR Człuchów</p>
+										<p>Plaża OSiR Człuchów</p>
 									</div>
 								</div>
 							</div>
@@ -215,6 +223,49 @@
 				</div>
 			</div>
 		</section>
+
+
+<br/>
+    	<section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+              <h2 class="mb-4"><a href="{% url 'aktualnosci' %}"><span>Aktualności</span></a> </h2>
+            <p>Chcesz coś tu dodać????? </p>
+          </div>
+        </div>
+				<div class="row">
+                    {%  for post in latest_post3 %}
+          <div class="col-md-6 col-lg-4 ftco-animate">
+            <div class="blog-entry">
+
+              <a href="{% url 'post_detail' pk=post.pk %}" class="block-20 d-flex align-items-end" style="background-image:
+             url({{  post.images.url  }})">
+								<div class="meta-date text-center p-2">
+                  <span class="day">{{ post.publish_date|date:'d'}}</span>
+                  <span class="mos">{{ post.publish_date|date:'E'}}</span>
+                  <span class="yr">{{ post.publish_date|date:'Y'}}</span>
+                </div>
+              </a>
+              <div class="text bg-white p-4">
+                  <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                  <p>{{ post.text|truncatewords:18|linebreaksbr }}.</p>
+                <div class="d-flex align-items-center mt-4">
+	                <p class="mb-0"><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">
+                        Czytaj więcej <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="ml-auto mb-0">
+	                	<a href="#" class="mr-2">{{ post.author }}</a>
+	                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+                    {% endfor %}
+                </div>
+			</div>
+		</section>
+
+
 
 	<section class="ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %});"
              data-stellar-background-ratio="0.5">
@@ -232,6 +283,9 @@
 			</div>
 		</section>
 
+
+
+
 	<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-2">
@@ -246,8 +300,8 @@
 						<div class="text bg-light p-4">
 							<h3><a href="{% url 'obozy' %}">Półkolonie i obozy</a></h3>
 							<p class="subheading"><span>Termin:</span> lato i zima</p>
-							<p>Każdego roku latem i zimą organizujemy niezapomniane półkolonie i obozy pełne ciekawych
-                                atrakcji. Obozy zawsze organizujemy w różnych regionach naszego kraju.</p>
+							<p>Lato i zima to czas niezapomnianych przygód w trakcie półkolonii i obozów organizowanych
+                                w różnych zakątkach naszego kraju. Zapisz się już dziś. </p>
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
@@ -255,7 +309,7 @@
 						<div class="text bg-light p-4">
 							<h3><a href="{% url 'zielona-szkola' %}">Zielone szkoły</a></h3>
 							<p class="subheading"><span>Termin:</span> rok szkolny</p>
-							<p>Zapraszamy na pełne niezapomnianych przygód wycieczki dla szkół.
+							<p>Zapraszamy na pełne atrakcji wycieczki dla szkół.
                                 Zapoznaj się z naszą ofertą i skontaktuj się już dziś. </p>
 						</div>
 					</div>
@@ -280,6 +334,7 @@
 				</div>
 			</div>
 		</section>
+
 
 
     	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static 'images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
@@ -325,7 +380,9 @@
         </div>
     	</div>
     </section>
+    <br/>
 
+    <!--
         <section class="ftco-section testimony-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -412,97 +469,9 @@
         </div>
       </div>
     </section>
+    -->
 
- <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image:
-         url({% static 'images/bg_5.jpg' %});" data-stellar-background-ratio="0.5">
-    	<div class="container">
-    		<div class="row justify-content-end">
-    			<div class="col-md-6 py-5 px-md-5 bg-primary">
-	          <div class="heading-section heading-section-white ftco-animate mb-5">
-	            <h2 class="mb-4">Szybki kontakt</h2>
-	            <p>Napisz do nas - odpowiemy tak szybko jak to możliwe.</p>
-	          </div>
-	          <form action="#" class="appointment-form ftco-animate">
-	    				<div class="d-md-flex">
-		    				<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="First Name">
-		    				</div>
-		    				<div class="form-group ml-md-4">
-		    					<input type="text" class="form-control" placeholder="Last Name">
-		    				</div>
-	    				</div>
-	    				<div class="d-md-flex">
-	    					<div class="form-group">
-		    					<div class="form-field">
-          					<div class="select-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="" class="form-control">
-                      	<option value="">Select Your Course</option>
-                        <option value="">Art Lesson</option>
-                        <option value="">Language Lesson</option>
-                        <option value="">Music Lesson</option>
-                        <option value="">Sports</option>
-                        <option value="">Other Services</option>
-                      </select>
-                    </div>
-		              </div>
-		    				</div>
-	    					<div class="form-group ml-md-4">
-		    					<input type="text" class="form-control" placeholder="Phone">
-		    				</div>
-	    				</div>
-	    				<div class="d-md-flex">
-	    					<div class="form-group">
-		              <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-		            </div>
-		            <div class="form-group ml-md-4">
-		              <input type="submit" value="Request A Quote" class="btn btn-secondary py-3 px-4">
-		            </div>
-	    				</div>
-	    			</form>
-    			</div>
-        </div>
-    	</div>
-    </section>
 
-    	<section class="ftco-section bg-light">
-			<div class="container">
-				<div class="row justify-content-center mb-5 pb-2">
-          <div class="col-md-8 text-center heading-section ftco-animate">
-            <h2 class="mb-4"><span>Aktualności</span> Blog</h2>
-            <p>Chcesz coś tu dodać????? </p>
-          </div>
-        </div>
-				<div class="row">
-                    {%  for post in latest_post3 %}
-          <div class="col-md-6 col-lg-4 ftco-animate">
-            <div class="blog-entry">
-
-              <a href="{% url 'post_detail' pk=post.pk %}" class="block-20 d-flex align-items-end" style="background-image:
-             url({{  post.images.url  }})">
-								<div class="meta-date text-center p-2">
-                  <span class="day">{{ post.publish_date|date:'d'}}</span>
-                  <span class="mos">{{ post.publish_date|date:'E'}}</span>
-                  <span class="yr">{{ post.publish_date|date:'Y'}}</span>
-                </div>
-              </a>
-              <div class="text bg-white p-4">
-                  <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-                  <p>{{ post.text|truncatewords:18|linebreaksbr }}.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">
-                        Czytaj więcej <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">{{ post.author }}</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-                    {% endfor %}
-                </div>
-			</div>
-		</section>
 
 		<section class="ftco-gallery">
     	<div class="container-wrap">
