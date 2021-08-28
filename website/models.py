@@ -40,13 +40,13 @@ class Kindergarten(models.Model):
         verbose_name='Wybierz przedszkole'
     )
 
-    user_name = models.CharField(max_length=200, verbose_name="Imię i nazwisko rodzica(opiekuna)")
+    user_name = models.CharField(max_length=200, verbose_name="Imię i nazwisko rodzica (opiekuna)")
     child_name = models.CharField(max_length=200, verbose_name="Imię i nazwisko dziecka")
     class_name = models.CharField(max_length=50, verbose_name="Nazwa grupy przedszkolnej")
     phone_number = models.CharField(max_length=9,
-                                    verbose_name='Nr telefonu rodzica(opiekuna)',
+                                    verbose_name='Nr telefonu rodzica (opiekuna)',
                                     validators=[PHONE_NUMBER_REGEX])
-    email = models.EmailField(max_length=254, null=True, verbose_name='Adres mailowy rodzica(opiekuna)')
+    email = models.EmailField(max_length=254, null=True, verbose_name='Adres mailowy rodzica (opiekuna)')
     regulations = models.BooleanField(verbose_name='Potwierdzam, że zapoznałem się z regulaminem',
                                       validators=[validate_regulations])
     data_enrol = models.DateTimeField(auto_now=True)
