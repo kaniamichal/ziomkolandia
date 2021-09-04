@@ -282,7 +282,7 @@ def camps(request):
 
 
 def offer(request):
-    return render(request, 'website/oferta.html')
+    return render(request, 'website/oferta-obozy.html')
 
 
 def atractions(request):
@@ -345,6 +345,22 @@ def snooker(request):
     return render(request, 'website/atrakcje/GigaPilkarzyki.html')
 
 
+def watherroller(request):
+    return render(request, 'website/atrakcje/WodnyWalec.html')
+
+
+def paintball(request):
+    return render(request, 'website/atrakcje/Paintball.html')
+
+
+def wata(request):
+    return render(request, 'website/atrakcje/WataCukrowa.html')
+
+
+def agregat(request):
+    return render(request, 'website/atrakcje/Agregat.html')
+
+
 def offer_green(request):
     return render(request, 'website/oferta-zielona-szkola.html')
 
@@ -359,4 +375,5 @@ def green_maxi(request):
 
 def green_xl(request):
     return render(request, 'website/zielona-szkola/ziomkolandia-xl.html')
+
 

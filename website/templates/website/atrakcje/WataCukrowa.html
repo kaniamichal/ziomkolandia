@@ -1,0 +1,93 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green;">
+            <strong> Wata cukrowa, popcorn</strong></a>
+        </h2>
+        <p>
+            Organizując event warto pomyśleć o dodatkach uatrakcyjniającyh czas w trakcie imprezy. Klejące paluszki i
+            uśmiechająca się buzia to obraz z dzieciństwa, który kojarzy się z przepyszną watą cukrową. Prażona
+            kukurydza to smakołyk każdego dziecka. Dzieci szaleją na ich punkcie.
+        </p>
+        <p>
+            <strong> Nasza oferta zawiera kompleksową obsługę maszyn oraz wszystkie materiały do ich produkcji. </strong>
+        </p>
+           </div>
+             <div class="row">
+               <p class="button text-center"><a href="{% url 'kontakt' %}" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+        </section>
+
+
+ <section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+                  <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wata1.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wata1.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wata.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wata.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wata3.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wata3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/wata4.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/wata4.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+            </div>
+        </div>
+
+    </section>
+
+<br/>
+
+
+{% endblock %}
