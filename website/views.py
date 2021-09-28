@@ -377,3 +377,10 @@ def green_xl(request):
     return render(request, 'website/zielona-szkola/ziomkolandia-xl.html')
 
 
+def polityka(request):
+    return render(request, 'website/polityka-prywatnosci.html')
+
+
+def regulamin(request):
+    return render(request, 'website/regulamin.html')
+

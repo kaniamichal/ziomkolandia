@@ -4,7 +4,8 @@
 {% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %}
 {%  block banner %}
     <section class="home-slider owl-carousel" xmlns="http://www.w3.org/1999/html">
-      <div class="slider-item" style="background-image:url({% static 'images/dmuchnce.jpg'  %});">
+
+      <div class="slider-item" style="background-image:url({% static 'images/zamki.jpg'  %});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -28,7 +29,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/zajecia.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/aktywna.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -53,7 +54,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/zielone.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/zieloneszkoly.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -160,7 +161,7 @@
 	          <!--	<h2 class="mb-4">Jakaś grafika może?</h2> -->
 
                     <div>
-                   <img src="{% static 'images/plakat_main.jpg'%}">
+                   <img src="{% static 'images/plakat-main.jpg'%}">
                     </div>
 
 
@@ -246,7 +247,7 @@
 				<div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section ftco-animate">
               <h2 class="mb-4"><a href="{% url 'aktualnosci' %}"><span>Aktualności</span></a> </h2>
-            <p>Chcesz coś tu dodać????? </p>
+
           </div>
         </div>
 				<div class="row">
@@ -282,7 +283,7 @@
 
 
 
-	<section class="ftco-intro" style="background-image: url({% static 'images/bg_3.jpg' %});"
+	<section class="ftco-intro" style="background-image: url({% static 'images/tlo-ziomkolandia.jpg' %});"
              data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -311,7 +312,7 @@
         </div>
 				<div class="row">
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url({% static 'images/course-1.jpg' %});"></div>
+						<div class="img" style="background-image: url({% static 'images/polkolonie-obozy.jpg' %});"></div>
 						<div class="text bg-light p-4">
 							<h3><a href="{% url 'obozy' %}">Półkolonie i obozy</a></h3>
 							<p class="subheading"><span>Termin:</span> lato i zima</p>
@@ -320,7 +321,7 @@
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url({% static 'images/course-2.jpg' %});"></div>
+						<div class="img" style="background-image: url({% static 'images/zielone-szkoly.jpg' %});"></div>
 						<div class="text bg-light p-4">
 							<h3><a href="{% url 'zielona-szkola' %}">Zielone szkoły</a></h3>
 							<p class="subheading"><span>Termin:</span> rok szkolny</p>
@@ -329,7 +330,7 @@
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url({% static 'images/course-3.jpg' %});"></div>
+						<div class="img" style="background-image: url({% static 'images/imprezy.jpg' %});"></div>
 						<div class="text bg-light p-4">
 							<h3><a href="{% url 'eventy' %}">Imprezy firmowe i prywatne</a></h3>
 							<p class="subheading"><span>Termin:</span> 365 dni w roku</p>
@@ -338,7 +339,7 @@
 						</div>
 					</div>
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url({% static 'images/course-4.jpg' %});"></div>
+						<div class="img" style="background-image: url({% static 'images/dmuchane-zamki.jpg' %});"></div>
 						<div class="text bg-light p-4">
 							<h3><a href="{% url 'atrakcje' %}">Dmuchańce i atrakcje</a></h3>
 							<p class="subheading"><span>Termin:</span> 365 dni w roku</p>
@@ -352,12 +353,13 @@
 
 
 
-    	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static 'images/bg_4.jpg' %});" data-stellar-background-ratio="0.5">
+    	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image:
+                url({% static 'images/tlo-liczby.jpg' %});" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section heading-section-black ftco-animate">
-            <h2 class="mb-4"><span>Ponad 10 lat </span> doświadczenia</h2>
-            <p>w uszczęśliwianiu dzieci w różnym wieku </p>
+            <h2 class="mb-4" style="color: red">Ponad 10 lat doświadczenia</h2>
+              <p style="color: red">w uszczęśliwianiu dzieci w różnym wieku </p>
           </div>
         </div>
     		<div class="row d-md-flex align-items-center justify-content-center">
@@ -366,9 +368,9 @@
 		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
 		            	<div class="icon"><span class="flaticon-doctor"></span></div>
-		              <div class="text">
-		                <strong class="number" data-number="1200">0</strong>
-		                <span>Uśmiechniętych dzieci</span>
+		              <div class="text" >
+		                <strong class="number" data-number="1200" style="color:yellow">0</strong>
+                          <span style="color:white">Uśmiechniętych dzieci</span>
 		              </div>
 		            </div>
 		          </div>
@@ -376,8 +378,8 @@
 		            <div class="block-18">
 		            	<div class="icon"><span class="flaticon-doctor"></span></div>
 		              <div class="text">
-		                <strong class="number" data-number="2400">0</strong>
-		                <span>Zadowolonych rodziców</span>
+		                <strong class="number" data-number="2400"style="color:yellow">0</strong>
+		                <span style="color:white">Zadowolonych rodziców</span>
 		              </div>
 		            </div>
 		          </div>
@@ -385,8 +387,8 @@
 		            <div class="block-18">
 		            	<div class="icon"><span class="flaticon-doctor"></span></div>
 		              <div class="text">
-		                <strong class="number" data-number="3600">0</strong>
-		                <span>Uśmiechniętych buziek</span>
+		                <strong class="number" data-number="3600"style="color:yellow">0</strong>
+		                <span style="color:white">Uśmiechniętych buziek</span>
 		              </div>
 		            </div>
 		          </div>
