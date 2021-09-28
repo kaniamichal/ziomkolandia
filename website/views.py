@@ -361,6 +361,10 @@ def agregat(request):
     return render(request, 'website/atrakcje/Agregat.html')
 
 
+def wodne(request):
+    return render(request, 'website/atrakcje/wodne-atrakcje.html')
+
+
 def offer_green(request):
     return render(request, 'website/oferta-zielona-szkola.html')
 
@@ -383,4 +387,3 @@ def polityka(request):
 
 def regulamin(request):
     return render(request, 'website/regulamin.html')
-

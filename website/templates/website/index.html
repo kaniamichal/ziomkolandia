@@ -79,11 +79,7 @@
 
                <div class="media-body p-2 mt-3">
    {% for post in latest_post_pos4 %}
-<!--
-{{ post.title }}
-        <div class="block-21 mb-4 d-flex">
-     <a class="blog-img" style="background-image:  url({{  post.images.url  }})"></a></div>
--->
+
         <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
                 <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
             {% endfor %}
@@ -229,7 +225,7 @@
 									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
                                         <span class="flaticon-diploma"></span></div>
 									<div class="text">
-                                        <h3><a href="{% url 'Motorowka' %}"> Atrakcje nad wodną</a></h3>
+                                        <h3><a href="{% url 'wodne-atrakcje' %}"> Atrakcje nad wodną</a></h3>
 										<p>Plaża OSiR Człuchów</p>
 									</div>
 								</div>
@@ -399,96 +395,6 @@
     </section>
     <br/>
 
-    <!--
-        <section class="ftco-section testimony-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-          <div class="col-md-8 text-center heading-section ftco-animate">
-            <h2 class="mb-4"><span>Co mówią </span> o nas inni</h2>
-            <p>Coś chcesz dodać????? </p>
-          </div>
-        </div>
-        <div class="row ftco-animate justify-content-center">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-1.jpg' %})">
-                  </div>
-                  <div class="text ml-2 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Racky Henderson</p>
-                    <span class="position">Father</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-2.jpg' %})">
-                  </div>
-                  <div class="text ml-2 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Henry Dee</p>
-                    <span class="position">Mother</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-3.jpg'  %})">
-                  </div>
-                  <div class="text ml-2 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Huff</p>
-                    <span class="position">Mother</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-4.jpg'  %})">
-                  </div>
-                  <div class="text ml-2 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Rodel Golez</p>
-                    <span class="position">Mother</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-1.jpg'  %})">
-                  </div>
-                  <div class="text ml-2 bg-light">
-                  	<span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Ken Bosh</p>
-                    <span class="position">Mother</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    -->
-
-
 
 		<section class="ftco-gallery">
     	<div class="container-wrap">
@@ -531,22 +437,3 @@
 
 {% endblock %}
 
-{% block newsletter %}
-<!--
-  <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Newsletter!</h2>
-              <form enctype="multipart/form-data" method="POST" action="" class="subscribe-form">
-                <div class="form-group">
-                    {% csrf_token %}
-               <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
-                           placeholder="Wpisz swój adres mailowy">
-                {{ form.newsletter_email}}
-                     {% if form.is_valid %}
-                      {{ form.newsletter_email.value}}
-                        {% endif %}
-                    <button type="submit" value="Zapisz mnie" class="form-control submit px-3"> Zapisz mnie </button>
-                </div>
-              </form>
-            </div>
--->
-{% endblock %}

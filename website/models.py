@@ -8,7 +8,7 @@ from django import forms
 class Kindergarten(models.Model):
     def validate_regulations(self):
         if not self:
-            raise ValidationError('Musisz zapoznać się z regulaminem')
+            raise ValidationError('Musisz zapoznać się z regulaminem oraz polityką prywatności')
 
     PHONE_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
 
@@ -47,8 +47,9 @@ class Kindergarten(models.Model):
                                     verbose_name='Nr telefonu rodzica (opiekuna)',
                                     validators=[PHONE_NUMBER_REGEX])
     email = models.EmailField(max_length=254, null=True, verbose_name='Adres mailowy rodzica (opiekuna)')
-    regulations = models.BooleanField(verbose_name='Potwierdzam, że zapoznałem się z regulaminem',
+    regulations = models.BooleanField(verbose_name='Reglamin',
                                       validators=[validate_regulations])
+    regulations_image = models.BooleanField(verbose_name='Wizerunek', default=False)
     data_enrol = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -57,7 +58,17 @@ class Kindergarten(models.Model):
 
 # Model to the enrolling to the camps
 class Camp(models.Model):
+    def validate_regulations(self):
+        if not self:
+            raise ValidationError('Musisz zapoznać się z regulaminem oraz polityką prywatności')
+
     ONLY_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
+    YES = 'YES'
+    NO = 'NO'
+    REGULATIONS_CHOICE = [
+        (YES, 'Tak'),
+        (NO, 'Nie'),
+    ]
 
     parent_name = models.CharField(max_length=255, verbose_name="Imię i nazwisko rodzica/opiekuna")
     parent_email = models.EmailField(verbose_name="Adres mailowy rodzica/opiekuna")
@@ -82,6 +93,8 @@ class Camp(models.Model):
     interests_child = models.CharField(max_length=255,
                                        verbose_name="Zainteresowania dziecka (wymienić kilka najważniejszych "
                                                     "oddzielając przecinkiem) ")
+    regulations = models.BooleanField(verbose_name='Reglamin', default=False,
+                                      validators=[validate_regulations])
     data_enrol = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -90,7 +103,18 @@ class Camp(models.Model):
 
 # Model to enroll to the day camps
 class DayCamp(models.Model):
+
+    def validate_regulations(self):
+        if not self:
+            raise ValidationError('Musisz zapoznać się z regulaminem oraz polityką prywatności')
+
     ONLY_NUMBER_REGEX = RegexValidator(r'^[-\s\./0-9]*$', 'Podaj poprawny nr tefonu - tylko liczby')
+    YES = 'YES'
+    NO = 'NO'
+    REGULATIONS_CHOICE = [
+        (YES, 'Tak'),
+        (NO, 'Nie'),
+    ]
 
     FIRST = 'I termin'
     SECOND = 'II termin'
@@ -162,6 +186,8 @@ class DayCamp(models.Model):
                                          validators=[ONLY_NUMBER_REGEX],
                                          default='-----',
                                          help_text= "Jezeli upoważniasz tylko 1 osobę pozostaw pole bez zmian",)
+    regulations = models.BooleanField(verbose_name='Reglamin', default=False,
+                                      validators=[validate_regulations])
     data_enrol = models.DateTimeField(auto_now=True)
 
     def __str__(self):

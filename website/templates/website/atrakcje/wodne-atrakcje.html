@@ -1,0 +1,80 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Niezapomniane atrakcje nad wodą tylko z Ziomkolandia.pl {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/dmuchance.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="ftco-section">
+        <div class="container">
+    	    <div class="row">
+
+                <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'PoduchaWodna' %}" style="color: black">
+                                Dmuchana poducha Water Blob</a></h3>
+                            <p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/water_blob.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 10m długość, 4m szerokość</p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'PoduchaWodna' %}"
+                                                         class="btn btn-primary px-4 py-3">Więcej...</a></p>
+                    </div>
+                </div>
+
+
+                  <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'WatherRoller' %}" style="color: black">
+                                Wodny <br/> Walec</a></h3>
+                            <p><span class="price">PLN 600</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/atrakcje/walec1.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 10m długość, 4m szerokość</p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'WatherRoller' %}"
+                                                         class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'Motorowka' %}" style="color: black">
+                                RIB - Banan, Poduchy, Narty</a></h3>
+                            <p><span class="price">PLN 400</span> <span class="per">/ 1h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/lodka.jpg'%});"></div>
+                        <div class="px-4">
+                           <p>Instruktor w cenie</p>
+                           <p>Minimum 3h</p>
+                        </div>
+                            <p class="button text-center"><a href="{% url 'Motorowka' %}"
+                                                             class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}

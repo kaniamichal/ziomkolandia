@@ -24,6 +24,7 @@ urlpatterns = [
     path('atrakcje/Paintball', views.paintball, name='Paintball'),
     path('atrakcje/WataCukrowa', views.wata, name='WataCukrowa'),
     path('atrakcje/Agregat', views.agregat, name='Agregat'),
+    path('atrakcje/wodne-atrakce', views.wodne, name='wodne-atrakcje'),
     path('eventy/', views.eventy, name='eventy'),
     path('oferta/', views.offer, name='oferta'),
     path('obozy/', views.camps, name='obozy'),
