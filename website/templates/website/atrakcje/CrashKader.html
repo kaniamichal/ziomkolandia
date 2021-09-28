@@ -3,7 +3,7 @@
 {% block title %} Aktywna Ziomkolandia {% endblock %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/dmuchance.jpg' %});">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -33,7 +33,7 @@
             z sufitu oraz podłogi (które utrudniają przejście i spowalniają zawodników).
         </p>
         <p>
-           <stron> Dmuchany tor przeszkód CrashKader "Long", został zaprojektowany z myślą o głównie o młodzieży i
+           <stron> Dmuchany tor przeszkód CrashKader "Long", został zaprojektowany z myślą o młodzieży i
                dorosłych, ale również dzieci od 6-go roku życia będą się na nim świetnie bawić. </stron>
             Tor składa się z trzech elementów, łączonych ze sobą za pomocą specjalnych rzepów.
         </p>
@@ -42,13 +42,13 @@
             Spełnia normę bezpieczeństwa PN:EN 14960 dla nadmuchiwanego sprzętu do zabawy. <br/>
             Do dmuchańca używamy dwóch dmuchaw 2400 W oraz jednej dmuchawy 1800 W
         </p>
-               <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'kontakt' %}" class="btn btn-primary px-4 py-3">Zamów</a></p>
                <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
 
          </div>
            </div>
 
-    </section>
+        </section>
 
 <br/>
     <section class="ftco-gallery">
@@ -210,6 +210,20 @@
 
         </div>
     	</div>
+
+      <div class="container">
+           <div class="row">
+       <img src="{% static 'images/logo-ue.png'%}">
+        <p>       Projekt: Uruchomienie nowych usług w zakresie organizacji czasu wolnego.<br/>
+        Celem projektu jest zakup dmuchanych atrakcji oraz rozszerzenie oferty o ekstremalne sporty wodne dostępne na terenie Ośrodka Sportu i Rekreacji w Człuchowie przy plaży nad Jeziorem Rychnowskim.
+        Dmuchane atrakcje dla dzieci i młodzieży pozwolą aktywnie spędzić czas. Użytkowane przez odbiorców obiekty pozwalają, nie tylko na świetną zabawę w oczach dzieci, ale przede wszystkim mają bardzo korzystny wpływ na organizm poprzez zwiększenie wydolności w trakcie skakania, wzmocnienie propriocepcji, a także pobudzenie czucia głębokiego. Ścianka wspinaczkowa to istotny element wzmacniający globalne mięśnie ciała, natomiast tory przeszkód stanowią ciekawy element współzawodnictwa, a przy tym ciekawą formę spędzania czasu dzieci i młodzieży. Analiza rynku pozwala stwierdzić, iż dotychczas tak różnorodne formy dmuchanych atrakcji nie są powszechnie dostępne w powiecie człuchowskim i okolicy, dlatego też inwestycja, którą firma planuje zrealizować z pewnością wzmocni pozycję na rynku.
+    <br/>
+             Wartość projektu: 171 000,98 zł <br/>
+             Wkład Funduszy Europejskich: 118 171,38 zł
+</p>
+         </div>
+             </div>
+    <br/>
     </section>
 
 {% endblock %}

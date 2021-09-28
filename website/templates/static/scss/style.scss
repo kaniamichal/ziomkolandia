@@ -128,9 +128,9 @@ h1, h2, h3, h4, h5,
 				padding-left: 20px;
 				padding-right: 20px;
 				font-weight: 400;
-				color: $black;
+				color: $green;
 				&:hover {
-					color: $black;
+					color: $green;
 				}
 				opacity: 1!important;
 				@include media-breakpoint-down(md){
@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5,
 		.nav-link {
 			padding-top: .9rem!important;
 			padding-bottom: .9rem!important;
-			color: $black!important;
+			color: $green!important;
 			&.active {
 				color: $primary!important;
 			}
@@ -1016,7 +1016,8 @@ h1, h2, h3, h4, h5,
 			a {
 				color: $black;
 				&:hover, &:focus, &:active {
-					color: $primary;
+					//color: $primary;
+					color: $white;
 				}
 			}
 		}
@@ -1299,7 +1300,8 @@ textarea.form-control {
 				a {
 					color: rgba(255,255,255,.9);
 					&:hover, &:active, &:focus {
-						color: $primary;
+					//	color: $primary;
+						color: $white;
 					}
 				}
 			}
@@ -1833,7 +1835,8 @@ textarea.form-control {
 			a {
 				color: $black;
 				&:hover, &:active, &:focus {
-					color: $primary;
+					//color: $primary;
+					color: $white;
 				}
 			}
 		}

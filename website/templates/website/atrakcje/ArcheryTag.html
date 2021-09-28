@@ -3,7 +3,7 @@
 {% block title %} Aktywna Ziomkolandia {% endblock %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/dmuchance.jpg' %});">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -33,7 +33,7 @@
             łucznicy podczas prawdziwej bitwy, ale bez żadnych obaw o własne bezpieczeństwo.
         </p>
 
-               <p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'kontakt' %}" class="btn btn-primary px-4 py-3">Zamów</a></p>
                <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
 
          </div>

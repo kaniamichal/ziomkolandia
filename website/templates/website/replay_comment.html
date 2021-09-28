@@ -1,0 +1,65 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} {{ blog.title }}  {% endblock %}
+
+{% block content %}
+    <!--
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">{{ post.title }}</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span>
+                  <span> <a href="{% url 'aktualnosci' %}"> Blog <i class="ion-ios-arrow-forward"></i></a></span>
+                  <span> <a href="#"> Blog single<i class="ion-ios-arrow-forward"></i></a></span>
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="pt-5 mt-5">
+    <h3 class="mb-5 h4 font-weight-bold">Komentarze</h3>
+    {% for comment in post.comments.all %}
+        <ul class="comment-list">
+        <li class="comment">
+            <div class="comment-body">
+                <h3>{{ comment.name }}</h3>
+                <div class="meta mb-2">{{ comment.date_added|date:'d-E-Y' }}</div>
+                <p>{{ comment.content }}</p>
+                <p><a href="#" class="reply">Reply</a></p>
+            </div>
+        </li>
+    {% endfor %}
+
+-->
+<!-- replay comments form -->
+
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5 h4 font-weight-bold">Skomentuj</h3>
+                <form action="#" enctype="multipart/form-data" class="p-5 bg-light" method="POST">
+                        {% csrf_token %}
+                  <div class="form-group">
+                    <label for="replay_name">Imię </label>
+
+                    <input type="text" class="form-control" name="replay_name" id="replay_name">
+                  </div>
+
+                    <div class="form-group">
+                    <label for="message">Treść</label>
+                    <textarea name="replay_content" id="replay_content" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                    <div class="form-group">
+                    <input type="submit" value="Wyślij" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div> <!-- .col-md-8 -->
+
+            </div>
+ </section>
+{% endblock %}

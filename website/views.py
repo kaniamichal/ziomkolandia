@@ -1,17 +1,18 @@
 import io
 import os
 
+import PyPDF2
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from django.contrib import messages
-from django.core.mail import send_mail
-from django.http import HttpResponse
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, FileResponse
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.views.generic import View, FormView, CreateView
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
+from self import self
 
 from newsletter.forms import JoinForm
 from ziomkolandia import settings
@@ -22,9 +23,7 @@ from .forms import KidsEnroll, CampEnroll, DayCampEnroll, ContactForm
 #      return render(request, 'website/index.html')
 
 def index(request):
-    template_name = 'website/index.html'
-    form_class = JoinForm
-    newsletter(request)
+    messages.info(request, "Strona wykorzystuje cookies")
     return render(request, 'website/index.html')
 
 
@@ -64,8 +63,7 @@ def kids_enroll_camp(request):
             school_address = form.cleaned_data['school_address']
             school_class = form.cleaned_data['school_class']
             interests_child = form.cleaned_data['interests_child']
-            print(child_name, child_birth_date, interests_child)
-            # camp.save()
+
             # creating a contract file to camp as pdf file
 
             pdfmetrics.registerFont(TTFont('DejaVuSans', 'DejaVuSans.ttf'))
@@ -133,41 +131,24 @@ def kids_enroll_camp(request):
             page3.mergePage(changes3.getPage(0))
             output.addPage(page3)
 
-            # with open("output.pdf", "wb") as output_stream:
-            # myFile = File(output_stream)
-            username = os.getenv('USER')
-            output_filename = '/home/{}/Desktop/umowa.pdf'.format(username, output).encode('UTF-8',
-                                                                                           errors='ignore').decode(
-                'UTF-8', errors='igoner')
-            with open(output_filename, "wb+") as out:
-                output.write(out)
+            with open('umowa-oboz.pdf', 'wb') as pdfOutputFile:
+                output.write(pdfOutputFile)
 
-            # output_stream = open("output.pdf", "wb+")
-            # output.write(output_stream)
-
-            # response = HttpResponse(output, content_type='application/pdf')
-            # response['Content-Disposition'] = 'attachment; filename="umowa.pdf'
-            # output_stream.close()
             camp.save()
-            # return response
-            # myFile.close()
-            # fs = FileSystemStorage()
-            # with fs.open(myFile) as pdf:
+            form = CampEnroll()
 
-            # response = HttpResponse(output.addAttachment("output2.pdf", output_stream), content_type='application/pdf')
-
-            # response = HttpResponse((output_stream.getvalue()), content_type='application/pdf')
-            # response = HttpResponse((output_stream.getvalue()), content_type='application/pdf')
-            # response['Content-Disposition'] = 'attachment; filename=umowa.pdf'
-            # # response.write(output.getValue())
-            # return response
-            # end
-            # return FileResponse(output, as_attachment=True, filename="umowa.pdf")
-            return redirect('thanks')
+            # Open merger merged_file.pdf, by HttpResponse output
+            with open('umowa-oboz.pdf', 'rb') as merged_file:
+                response = HttpResponse(merged_file.read(), content_type='application/pdf')
+                response['Content-Disposition'] = 'attachment; filename="umowa-oboz.pdf"'
+                return response
 
     else:
         form = CampEnroll()
     return render(request, 'website/oboz-zapisy.html', {'form': form})
+
+
+# TODO make clear all form fields
 
 
 def kids_enroll_day_camp(request):
@@ -239,97 +220,57 @@ def kids_enroll_day_camp(request):
             output.addPage(reader.getPage(2))
             output.addPage(reader.getPage(3))
 
-            # with open("output.pdf", "wb") as output_stream:
-            # myFile = File(output_stream)
-            ### savve file to desktop
-            # username = os.getenv('USER')
-            # output_filename = '/home/{}/Desktop/umowa-polkolonie.pdf'.format(username, output).encode('UTF-8',
-            #                                                                                           errors='ignore').\
-            #     decode('UTF-8', errors='ignore')
-            # with open(output_filename, "wb+") as out:
-            #     output.write(out)
+            with open('umowa-polkolonie.pdf', 'wb') as pdfOutputFile:
+                output.write(pdfOutputFile)
 
-            # output_stream = open("output.pdf", "wb+")
-            # output.write(output_stream)
-
-            # response = HttpResponse(output, content_type='application/pdf')
-            # response['Content-Disposition'] = 'attachment; filename="umowa.pdf'
-            # output_stream.close()
-            # return response
-            # myFile.close()
-            # fs = FileSystemStorage()
-            # with fs.open(myFile) as pdf:
-
-            # response = HttpResponse((output_stream.getvalue()), content_type='application/pdf')
-            # response = HttpResponse(out, content_type='application/pdf')
-            response = HttpResponse(content_type='application/pdf')
-            response['Content-Disposition'] = 'attachment; filename=umowa-polkolonie.pdf'
-            output.write(response)
-            # response.write(out)
-            # return response
             day_camp.save()
-            form = DayCampEnroll()
 
-            # # response.write(output.getValue())
-            return response, redirect('thanks')
-
-            # end
-            # return FileResponse(output, as_attachment=True) #filename="umowa2.pdf")
-            # return redirect('thanks')
-            # return redirect('thanks')
+            # Open merger merged_file.pdf, by HttpResponse output
+            with open('umowa-polkolonie.pdf', 'rb') as merged_file:
+                response = HttpResponse(merged_file.read(), content_type='application/pdf')
+                response['Content-Disposition'] = 'attachment; filename="umowa-polkolonie.pdf"'
+                messages.success(request, "Poprawine zapisałeś dziecko na półkolonie. Wydrukuj umowę i dostarcz ją "
+                                          "nam niezwłocznie.")
+                return response
 
     else:
         form = DayCampEnroll()
     return render(request, 'website/polkolonie-zapisy.html', {'form': form})
 
 
+# TODO clear form fields after save attachment
+
+
 def contact_form(request):
     if request.method == 'GET':
-        form = ContactForm
+        form = ContactForm()
     else:
         form = ContactForm(request.POST)
-        name = request.POST.get('contact_name', '')
-        subject = request.POST.get('contact_title', '')
-        email = request.POST.get('contact_email', '')
-        message = request.POST.get('content', '')
-        if form.is_valid() and email and name:
-            print(name, message)
-            send_mail(subject, message, settings.EMAIL_HOST_USER, ['info@ziomkolandia.pl'], fail_silently=False)
-            # return redirect('contact')
-            # except BadHeaderError:
-            #     return HttpResponse('Something has wrong')
-            messages.success(request, "Wiadomość została wysłana")
-            return redirect('contact')
+        if form.is_valid():
+            name = form.cleaned_data['contact_name']
+            subject = form.cleaned_data['contact_title']
+            email = form.cleaned_data['contact_email']
+            message = form.cleaned_data['content']
+            print(email, message)
+            try:
+                send_mail(settings.EMAIL_SUBJECT_PREFIX + subject, message, email, [settings.DEFAULT_FROM_EMAIL,
+                                                                                    str(email)], fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Upss, coś poszło nie tak :( Spróbuj ponownie')
+            messages.success(request, "Wiadomość została wysłana. Odpowiemy tak szybko jak to możliwe")
+            return redirect('kontakt')
 
-    return render(request, 'website/contact.html', {
+    return render(request, 'website/kontakt.html', {
         'form': form,
     })
-
-
-# newsletter
-def newsletter(request):
-    if request.method == "POST":
-        form = JoinForm(request.POST)
-        email = request.POST.get('newsletter_email', '')
-        print(email)
-        if form.is_valid():
-            join = form.save(commit=False)
-            join.newsletter_email = email
-            print(email)
-            join.newsletter_timestamp = timezone.now()
-            join.save()
-            return redirect('thanks')
-    else:
-        form = JoinForm()
-    return render(request, 'website/index.html', {'form': form})
 
 
 def thanks(request):
     return render(request, 'website/thanks.html')
 
 
-def contact(request):
-    return render(request, 'website/contact.html')
+def kontakt(request):
+    return render(request, 'website/kontakt.html')
 
 
 def przedszkola(request):
@@ -341,7 +282,7 @@ def camps(request):
 
 
 def offer(request):
-    return render(request, 'website/oferta.html')
+    return render(request, 'website/oferta-obozy.html')
 
 
 def atractions(request):
@@ -388,6 +329,61 @@ def dmuchaniec_klocki(request):
     return render(request, 'website/atrakcje/DmuchaniecKlocki.html')
 
 
+def skakaniec_klocki(request):
+    return render(request, 'website/atrakcje/SkakaniecKlocki.html')
+
+
 def poducha_wodna(request):
     return render(request, 'website/atrakcje/PoduchaWodna.html')
 
+
+def motorowka(request):
+    return render(request, 'website/atrakcje/Motorowka.html')
+
+
+def snooker(request):
+    return render(request, 'website/atrakcje/GigaPilkarzyki.html')
+
+
+def watherroller(request):
+    return render(request, 'website/atrakcje/WodnyWalec.html')
+
+
+def paintball(request):
+    return render(request, 'website/atrakcje/Paintball.html')
+
+
+def wata(request):
+    return render(request, 'website/atrakcje/WataCukrowa.html')
+
+
+def agregat(request):
+    return render(request, 'website/atrakcje/Agregat.html')
+
+
+def wodne(request):
+    return render(request, 'website/atrakcje/wodne-atrakcje.html')
+
+
+def offer_green(request):
+    return render(request, 'website/oferta-zielona-szkola.html')
+
+
+def green_mini(request):
+    return render(request, 'website/zielona-szkola/ziomkolandia-mini.html')
+
+
+def green_maxi(request):
+    return render(request, 'website/zielona-szkola/ziomkolandia-maxi.html')
+
+
+def green_xl(request):
+    return render(request, 'website/zielona-szkola/ziomkolandia-xl.html')
+
+
+def polityka(request):
+    return render(request, 'website/polityka-prywatnosci.html')
+
+
+def regulamin(request):
+    return render(request, 'website/regulamin.html')

@@ -1,0 +1,79 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/dmuchance.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green"> <strong> Wynajem łodzi typ RIB </strong> </a> </h2>
+           </div>
+           <div class="row">
+        <p>
+            <strong> Wynajem łodzi typ RIB </strong> (6 osób, silnik suzuki 100KM) wraz z instruktorem i atrakcjami
+            do holowania. <br/>
+            W naszej ofercie mogą Państwo skorzystać z następujących atrakcji wodnych:<br/>
+            - 6 osobowy banan wodny<br/>
+            - 2x poduchy 1 osobowe<br/>
+            - 4-osobowe koło do holowania - Spinera Professional Flight 4<br/>
+            - wakeboard <br/>
+            - narty wodne <br/>
+            - skinslais  <br/>
+
+        </p>
+        <p>
+            <strong> Możliwość wypożyczenia 6 kompletów pianek (damskie i męskie). <br/>
+                Zapewniamy również kamizelki ratownicze oraz kaski ochronne. </strong>
+        </p>
+           </div>
+          <div class="row">
+               <p class="button text-center"><a href="{% url 'kontakt' %}" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+
+    </section>
+<section class="ftco-section">
+      <div class="container">
+                  <div class="row">
+                     <img src="{% static 'images/lodka.jpg' %}" alt="RIB">
+					</div>
+
+<br/>
+      </div>
+
+
+      <div class="container">
+           <div class="row">
+       <img src="{% static 'images/logo-ue.png'%}">
+               <h3>Dotyczy: banana wodnego, 4-osobowego koła do holowania </h3>
+        <p>       Projekt: Uruchomienie nowych usług w zakresie organizacji czasu wolnego.<br/>
+        Celem projektu jest zakup dmuchanych atrakcji oraz rozszerzenie oferty o ekstremalne sporty wodne dostępne na terenie Ośrodka Sportu i Rekreacji w Człuchowie przy plaży nad Jeziorem Rychnowskim.
+        Dmuchane atrakcje dla dzieci i młodzieży pozwolą aktywnie spędzić czas. Użytkowane przez odbiorców obiekty pozwalają, nie tylko na świetną zabawę w oczach dzieci, ale przede wszystkim mają bardzo korzystny wpływ na organizm poprzez zwiększenie wydolności w trakcie skakania, wzmocnienie propriocepcji, a także pobudzenie czucia głębokiego. Ścianka wspinaczkowa to istotny element wzmacniający globalne mięśnie ciała, natomiast tory przeszkód stanowią ciekawy element współzawodnictwa, a przy tym ciekawą formę spędzania czasu dzieci i młodzieży. Analiza rynku pozwala stwierdzić, iż dotychczas tak różnorodne formy dmuchanych atrakcji nie są powszechnie dostępne w powiecie człuchowskim i okolicy, dlatego też inwestycja, którą firma planuje zrealizować z pewnością wzmocni pozycję na rynku.
+    <br/>
+             Wartość projektu: 171 000,98 zł <br/>
+             Wkład Funduszy Europejskich: 118 171,38 zł
+</p>
+         </div>
+             </div>
+    <br/>
+</section>
+
+{% endblock %}

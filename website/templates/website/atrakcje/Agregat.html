@@ -1,0 +1,115 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Aktywna Ziomkolandia {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/kontakt.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Dmuchańce i atrakcje</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas
+                  <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'atrakcje' %}">
+                 Dumachańce i atrakcje <i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-section">
+      <div class="container">
+           <div class="row">
+
+        <h2><a style="color:green;">
+            <strong>  Agregat Proton maks. 12 kW </strong></a>
+        </h2>
+        <p>
+            <strong> Agregat Proton 12000 360 Oasis Diesel </strong> sprawdzi się wszędzie tam gdzie ceniony jest
+            spokój oraz cisza. Jest to agregat dla wymagających warunków użytkowych. Oprócz wyciszenia oraz dużej mocy,
+            agregat jest chłodzony wodą co zapewnia całodobową pracę.
+
+        </p>
+       <p>
+           Dzięki wbudowanej regulacji możesz z powodzeniem zasilać najbardziej czułe urządzenia bez obawy ich
+           uszkodzenia. Agregatem Proton 12000 możesz bezproblemowo zasilać komputery, serwery, sterowniki oraz wiele
+           innych urządzeń.
+       </p>
+       <p>
+           Agregat Proton 12000 Oasis 360 wyposażony jest w technologię która pozwala uzyskać pełną moc zarówno na
+           gnieździe trójfazowym oraz jednofazowym. Typowy generator trójfazowy pozwala na wykorzystanie 1/3 mocy na
+           wyjściach 230 V - z funkcją Dual™ otrzymujesz do dyspozycji 100% mocy na 400V oraz 80% mocy na 230V.
+       </p>
+       <p>
+           Agregat wyposażony jest w chłodnicę która pozwala na długie okresy użytkowania agregatu prądotwórczego w
+           trudnych warunkach. Nie są wymagane przerwy w pracy a więc agregat jest całodobowy.
+       </p>
+        <p>
+            Moc znamionowa  <strong> 10000 Watt (12.5kVA) </strong> <br/>
+            Moc maksymalna (do 15 minut)  <strong> 12000 Watt (15kVA) </strong> <br/>
+            Generowany poziom hałasu  <strong> 73dB (pomiar - 5m, otwarta przestrzeń) </strong> <br/>
+            Napięcie  <strong> Trójfazowe 400V oraz jednofazowe 230V </strong> <br/>
+            Rodzaj paliwa  <strong> Diesel </strong> <br/>
+            Spalanie  <strong> 2.5l na godzinę (praca na poziomie 90% mocy maksymalnej)</strong> <br/>
+            Praca na pełnym zbiorniku  <strong> 10 godzin </strong> <br/>
+            Możliwość wyprowadzenia spalin poza obiekt  <strong> tak</strong> <br/>
+        </p>
+           </div>
+             <div class="row">
+               <p class="button text-center"><a href="{% url 'kontakt' %}" class="btn btn-primary px-4 py-3">Zamów</a></p>
+               <p class="button text-center"><a href="{% url 'atrakcje' %}" class="btn btn-quarternary px-4 py-3">Wróć do oferty</a></p>
+
+         </div>
+           </div>
+        </section>
+
+
+ <section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+                  <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/agregat.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/agregat.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/agregat1.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/agregat1.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/agregat2.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/agregat2.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+                <div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/atrakcje/agregat3.jpg'%}"
+                           class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/atrakcje/agregat3.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+            </div>
+        </div>
+
+    </section>
+
+<br/>
+
+
+{% endblock %}

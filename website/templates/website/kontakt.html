@@ -1,0 +1,122 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %} Kontak z Ziomkolandia.pl {% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/kontakt.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Kontak z nami</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas <i class="ion-ios-arrow-forward"></i></a></span> <span>Kontakt <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section contact-section">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+          <div class="col-md-3 d-flex">
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Adres</h3>
+	            <p>os. Witosa 24/27 <br/>77-300 Człuchów</p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Telefon</h3>
+	            <p><a href="tel://+48512503608">+48 512 503 608</a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">Email </h3>
+	            <p><a href="mailto:info@ziomkolandia.pl">info@ziomkolandia.pl</a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="bg-light align-self-stretch box p-4 text-center">
+          		<h3 class="mb-4">WWW</h3>
+	            <p><a href="{% url 'index' %}">www.ziomkolandia.pl</a></p>
+	          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
+			<div class="container">
+				<div class="row d-flex align-items-stretch no-gutters">
+					<div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
+						<form role="form" action="" method="post">
+                                 {% csrf_token %}
+                  <div class="form-group">
+
+                  {% if messages %}
+                  <ul class="messagelist">
+                      {% for message in messages %}
+                      <li {% if message.tags %} class="{{ message.tags }}" {% endif %} > {{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+
+           <input type="text" name="contact_name" class="form-control" placeholder="Imię i nazwisko"
+                  {% if form.is_valid %}
+                 {{ form.contact_name.value}}
+                    {% endif %} >
+              {% for err in form.contact_name.errors %}
+                  <small class="alert-danger"> {{ err }} </small>
+              {%endfor%}
+              </div>
+              <div class="form-group">
+
+   <input type="text" name="contact_email" class="form-control" placeholder="Adres mailowy"
+          {% if form.is_valid %}
+          {{ form.contact_email.value}}
+          {% endif %}>
+
+                 {% for err in form.contact_email.errors %}
+                  <small class="alert-danger"> {{ err }} </small>
+                 {%endfor%}
+
+              </div>
+              <div class="form-group">
+          <input type="text" name="contact_title" class="form-control" placeholder="Temat wiadomości"
+                 {% if form.is_valid %}
+                 {{ form.contact_title.value }}
+                 {% endif %}>
+
+                  {% for err in form.contact_title.errors %}
+                  <small class="alert-danger"> {{ err }} </small>
+                 {%endfor%}
+
+              </div>
+              <div class="form-group">
+              <textarea name="content" cols="30" rows="7" class="form-control" placeholder="Treść wiadomości"
+                        {% if form.is_valid %}
+                           {{ form.content.value }}
+                    {% endif %}></textarea>
+
+              {% for err in form.content.errors %}
+              <small class="alert-danger"> {{ err }}</small>
+              {% endfor %}
+
+              </div>
+
+              <div class="form-group">
+                <input type="submit" value="Wyślij wiadomość" class="btn btn-primary py-3 px-5">
+              </div>
+
+            </form>
+					</div>
+					<div class="col-md-6 d-flex align-items-stretch">
+						<div id="map"> <br/>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2364.461748427873!2d17.343566215850093!3d53.6565689800452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4702371f024b5529%3A0x9bee950f531e7901!2sOsiedle%20Witosa%2024%2C%2077-300%20Cz%C5%82uch%C3%B3w!5e0!3m2!1spl!2spl!4v1632849258158!5m2!1spl!2spl" width="570" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}

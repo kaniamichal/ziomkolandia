@@ -1,10 +1,11 @@
 {% extends 'website/base.html' %}
 {% load static %}
 
-{% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %} #}
+{% block title %} {{ "Ziomkolandia.pl - aktywni dzś wygrywają jutro" }} {% endblock %}
 {%  block banner %}
- <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url({% static 'images/baner_atrakcje.jpg'  %});">
+    <section class="home-slider owl-carousel" xmlns="http://www.w3.org/1999/html">
+
+      <div class="slider-item" style="background-image:url({% static 'images/zamki.jpg'  %});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -16,7 +17,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+      <div class="slider-item" style="background-image:url({%  static 'images/eventy.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -28,7 +29,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/przedszkola.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/aktywna.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -53,7 +54,7 @@
         </div>
       </div>
 
-           <div class="slider-item" style="background-image:url({%  static 'images/bg_2.jpg'  %} );">
+           <div class="slider-item" style="background-image:url({%  static 'images/zieloneszkoly.jpg'  %} );">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -64,10 +65,7 @@
         </div>
         </div>
       </div>
-
-
-
-    </section>
+   </section>
 
     <section class="ftco-services ftco-no-pb">
 			<div class="container-wrap">
@@ -75,72 +73,367 @@
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-primary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-kids"></span>
+
+                   <span class="flaticon-diploma"></span>
               </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Zmiana zmiana </h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+
+               <div class="media-body p-2 mt-3">
+   {% for post in latest_post_pos4 %}
+
+        <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
               </div>
             </div>
           </div>
-          <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-tertiary">
+
+     <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-tertiary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            	<span class="flaticon-kids"></span>
+            	<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Special Education</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                     {% for post in latest_post_pos3 %}
+                    <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
               </div>
+
             </div>
           </div>
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-fifth">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            	<span class="flaticon-kids"></span>
+            	<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Book &amp; Library</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                      {% for post in latest_post_pos2 %}
+                    <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white">  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
               </div>
             </div>
           </div>
           <div class="col-md-3 d-flex services align-self-stretch pb-4 px-4 ftco-animate bg-quarternary">
             <div class="media block-6 d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-         	<span class="flaticon-kids"></span>
+         	<span class="flaticon-diploma"></span>
               </div>
               <div class="media-body p-2 mt-3">
-                <h3 class="heading">Certification</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
+                      {% for post in latest_post_pos1 %}
+                    <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}" style="color: white" >  {{ post.title }}</a></h3>
+                <p>{{ post.text |truncatewords:10 |linebreaksbr }}</p>
+            {% endfor %}
+             </div>
             </div>
           </div>
         </div>
-			</div>
+                </div>
 		</section>
+
 {% endblock %}
 
 {% block content %}
-    <h1> Hello from django and new views on the website ;) :) </h1>
-{% endblock %}
 
-{% block newsletter %}
+    	<section class="ftco-section ftco-no-pt ftc-no-pb">
+        <br/> <br/>
+      <div class="col-md-12 wrap-about py-6 pr-md-5 ftco-animate">
+            <p> <strong> ZIOMKOLANDIA </strong> to świat, do którego zapraszamy nie tylko przedszkolaków i szkolniaków,
+           ale również dorosłych. Z pasją tworzymy zajęcia pt. <strong> „AKTYWNA ZIOMKOLANDIA” </strong>, w których
+           dzieci chętnie uczestniczą w trakcie roku przedszkolnego. Okres ferii oraz wakacji to czas
+           półkolonii i obozów, do których z zapałem przygotowujemy się każdego roku. Intensywny
+           rozwój firmy pozwala stworzyć oryginalny i niepowtarzalny harmonogram nie tylko zielonych
+           szkół, ale również eventów, które dzięki szerokiemu wachlarzowi atrakcji urozmaicą każdą
+           zaplanowaną imprezę. <br/> <br/>
+           Jeśli jesteś zainteresowany którąś z poniższych ofert to zapraszamy do kontaktu. Dołożymy
+           wszelkich starań, aby wywołać uśmiech na twarzy najmłodszych i już całkiem dorosłych
+           odbiorców.</p>
+        </div>
+            <br/>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
+						<div class="text px-3 ftco-animate">
+	          <!--	<h2 class="mb-4">Jakaś grafika może?</h2> -->
 
-  <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Newsletter!</h2>
-              <form enctype="multipart/form-data" method="POST" action="" class="subscribe-form">
-                <div class="form-group">
-                    {% csrf_token %}
-               <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
-                           placeholder="Wpisz swój adres mailowy">
-                {{ form.newsletter_email}}
-                     {% if form.is_valid %}
-                      {{ form.newsletter_email.value}}
-                        {% endif %}
-                    <button type="submit" value="Subscribe" class="form-control submit px-3"> Zapisz mnie </button>
+                    <div>
+                   <img src="{% static 'images/plakat-main.jpg'%}">
+                    </div>
+
+
+
+						<!--	<p><a href="#" class="btn btn-secondary px-4 py-3">Read More</a></p> -->
+						</div>
+					</div>
+					<div class="col-md-7 wrap-about py-6 pr-md-5 ftco-animate">
+
+         <!-- 	<h2 class="mb-4">Oferujemy:</h2> -->
+<br/><br/>
+						<div class="row mt-5">
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'atrakcje' %}">Atrakcje</a></h3>
+										<p>Bogaty asortyment wraz <br/>z profesjonalną obsługą</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'obozy' %}">Obozy i półkolonie</a> </h3>
+										<p>Wakacje i ferie pełne niezapomnianych przygód</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+                                        <h3><a href="{% url 'zielona-szkola' %}">Zielone szkoły </a></h3>
+										<p> Edukacja na wesoło</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'eventy' %}">Eventy</a> </h3>
+										<p>Kompleksowa organizacja imprez</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+										<h3><a href="{% url 'przedszkola' %}">Zajęcia w przedszkolach</a> </h3>
+										<p>"Aktywna Ziomkolandia" <br/>dla najmłodszych</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="services-2 d-flex">
+									<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center">
+                                        <span class="flaticon-diploma"></span></div>
+									<div class="text">
+                                        <h3><a href="{% url 'wodne-atrakcje' %}"> Atrakcje nad wodną</a></h3>
+										<p>Plaża OSiR Człuchów</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+<br/>
+    	<section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+              <h2 class="mb-4"><a href="{% url 'aktualnosci' %}"><span>Aktualności</span></a> </h2>
+
+          </div>
+        </div>
+				<div class="row">
+                    {%  for post in latest_post3 %}
+          <div class="col-md-6 col-lg-4 ftco-animate">
+            <div class="blog-entry">
+
+              <a href="{% url 'post_detail' pk=post.pk %}" class="block-20 d-flex align-items-end" style="background-image:
+             url({{  post.images.url  }})">
+								<div class="meta-date text-center p-2">
+                  <span class="day">{{ post.publish_date|date:'d'}}</span>
+                  <span class="mos">{{ post.publish_date|date:'E'}}</span>
+                  <span class="yr">{{ post.publish_date|date:'Y'}}</span>
                 </div>
-              </form>
+              </a>
+              <div class="text bg-white p-4">
+                  <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+                  <p>{{ post.text|truncatewords:18|linebreaksbr }}.</p>
+                <div class="d-flex align-items-center mt-4">
+	                <p class="mb-0"><a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-secondary">
+                        Czytaj więcej <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="ml-auto mb-0">
+	                	<a href="#" class="mr-2">{{ post.author }}</a>
+	                </p>
+                </div>
+              </div>
             </div>
+          </div>
+                    {% endfor %}
+                </div>
+			</div>
+		</section>
+
+
+
+	<section class="ftco-intro" style="background-image: url({% static 'images/tlo-ziomkolandia.jpg' %});"
+             data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<h2>Zapisz dziecko na zajęcia w przedszkolach </h2>
+					</div>
+					<div class="col-md-3 d-flex align-items-center">
+						<p class="mb-0"><a href="{% url 'kids_enroll' %}" class="btn btn-secondary px-4 py-3">
+                            Ziomkolandia - zapisy</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+	<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4"><span>Najczęściej </span> wybierane</h2>
+            <p>Poniżej przedstawiamy najpopularniejsze nasze działania</p>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/polkolonie-obozy.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'obozy' %}">Półkolonie i obozy</a></h3>
+							<p class="subheading"><span>Termin:</span> lato i zima</p>
+							<p>Lato i zima to czas niezapomnianych przygód w trakcie półkolonii i obozów organizowanych
+                                w różnych zakątkach naszego kraju. Zapisz się już dziś. </p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/zielone-szkoly.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'zielona-szkola' %}">Zielone szkoły</a></h3>
+							<p class="subheading"><span>Termin:</span> rok szkolny</p>
+							<p>Zapraszamy na pełne atrakcji wycieczki dla szkół.
+                                Zapoznaj się z naszą ofertą i skontaktuj się już dziś. </p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/imprezy.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'eventy' %}">Imprezy firmowe i prywatne</a></h3>
+							<p class="subheading"><span>Termin:</span> 365 dni w roku</p>
+							<p>Organizujemy wyjątkowe imprezy dla dzieci, zarówno te organizowane przez firmy jak i
+                                indywidualnie przez rodziców. Skontaktuj się z nami - doradzimy. </p>
+						</div>
+					</div>
+					<div class="col-md-6 course d-lg-flex ftco-animate">
+						<div class="img" style="background-image: url({% static 'images/dmuchane-zamki.jpg' %});"></div>
+						<div class="text bg-light p-4">
+							<h3><a href="{% url 'atrakcje' %}">Dmuchańce i atrakcje</a></h3>
+							<p class="subheading"><span>Termin:</span> 365 dni w roku</p>
+							<p>Organizujesz imprezę i brakuje Ci atrakcji? Świetnie trafiłeś - zapoznaj się z naszą
+                                ofertą a o imprezie będzie głośno przez długi czas. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+    	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image:
+                url({% static 'images/tlo-liczby.jpg' %});" data-stellar-background-ratio="0.5">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section heading-section-black ftco-animate">
+            <h2 class="mb-4" style="color: red">Ponad 10 lat doświadczenia</h2>
+              <p style="color: red">w uszczęśliwianiu dzieci w różnym wieku </p>
+          </div>
+        </div>
+    		<div class="row d-md-flex align-items-center justify-content-center">
+    			<div class="col-lg-10">
+    				<div class="row d-md-flex align-items-center">
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text" >
+		                <strong class="number" data-number="1200" style="color:yellow">0</strong>
+                          <span style="color:white">Uśmiechniętych dzieci</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="2400"style="color:yellow">0</strong>
+		                <span style="color:white">Zadowolonych rodziców</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18">
+		            	<div class="icon"><span class="flaticon-doctor"></span></div>
+		              <div class="text">
+		                <strong class="number" data-number="3600"style="color:yellow">0</strong>
+		                <span style="color:white">Uśmiechniętych buziek</span>
+		              </div>
+		            </div>
+		          </div>
+	          </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+    <br/>
+
+
+		<section class="ftco-gallery">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/parklinowy.jpg' %}" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/parklinowy.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/gumizela.jpg' %}" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/gumizela.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/oboz2a.jpg' %}" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/oboz2a_.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+					<div class="col-md-3 ftco-animate">
+						<a href="{% static 'images/banan.jpg' %}" class="gallery image-popup img d-flex align-items-center"
+                           style="background-image: url({% static 'images/banan.jpg' %});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+    					</div>
+						</a>
+					</div>
+    	</div>
+        </div>
+    </section>
 
 {% endblock %}
+

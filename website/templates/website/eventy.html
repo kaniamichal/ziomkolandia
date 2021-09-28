@@ -3,13 +3,15 @@
 {% block title %} Eventy - imprezy firmowe i prywatne {% endblock %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/eventyfirmowe.jpg' %});">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-2 bread">Eventy imprezy firmowe i prywatne </h1>
-              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'eventy' %}"> Eventy <i class="ion-ios-arrow-forward"></i></a></span></p>
+              <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">
+                  O nas <i class="ion-ios-arrow-forward"></i></a></span> <span>
+                  <a href="{% url 'eventy' %}"> Eventy <i class="ion-ios-arrow-forward"></i></a></span></p>
           </div>
         </div>
       </div>
@@ -20,7 +22,7 @@
     <div class="container">
            <div class="row">
                <div>
-        <p>
+        <p><br/>
             Olimpiady sportowe i animacje realizujemy wg określonego scenariusza.
         </p>
         <p>
@@ -35,8 +37,8 @@
          </div>
            </div>
         <div class="row">
-         <div class="col-md-4 order-md-last wrap-about py-4 wrap-about bg-light">
-                <div class="image-popup">
+         <div class="col-md-4 order-md-last wrap-about py-4 wrap-about ">
+                <div>
                    <img src="{% static 'images/animacje_eventy.jpg'%}">
                 </div>
            </div>
@@ -66,8 +68,8 @@
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 order-md-last wrap-about py-4 wrap-about bg-light">
-                <div class="image-popup">
+            <div class="col-md-4 order-md-last wrap-about py-4 wrap-about ">
+                <div >
                    <img src="{% static 'images/olimpiady_sportowe.jpg'%}">
                 </div>
            </div>
@@ -78,7 +80,7 @@
                     <li>foliowe wyścigi </li>
                     <li>atrakcje strzeleckie</li>
                     <li>siatkówka na wesoło</li>
-                    <li>megga Jenga </li>
+                    <li>mega Jenga </li>
                     <li>narty drużynowe </li>
                     <li>wspinaczka po skrzynkach </li>
                     <li>przeciąganie liny</li>
@@ -93,7 +95,8 @@
 
         </div>
         <p>
-        <h3> Serdecznie zapraszamy do skorzystania z naszej oferty i do kontaktu z nami celem ustalenia szczegółów. </h3>
+        <h3> <a href="{% url 'kontakt' %}" style="color:green"> Serdecznie zapraszamy do skorzystania z naszej oferty i do kontaktu
+        z nami celem ustalenia szczegółów. </a></h3>
        </p>
     </div>
     </section>
@@ -103,31 +106,31 @@
     	<div class="container-wrap">
     		<div class="row no-gutters">
 					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/oboz2.jpg '%}"
+						<a href="{% static 'images/eventy5.jpg'%}"
                            class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({%  static "images/oboz2.jpg" %});">
+                           style="background-image: url({%  static "images/eventy5.jpg" %});">
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/oboz3.jpg' %}"
+						<a href="{% static 'images/eventy3.jpg' %}"
                            class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({% static 'images/oboz3.jpg' %});">
+                           style="background-image: url({% static 'images/eventy3.jpg' %});">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/polkolonie2.jpg' %}"
+						<a href="{% static 'images/eventy2.jpg' %}"
                            class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({% static 'images/polkolonie2.jpg' %});">
+                           style="background-image: url({% static 'images/eventy2.jpg' %});">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     					</div>
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="{% static 'images/polkolonie3.jpg'%}"
+						<a href="{% static 'images/eventy1.jpg'%}"
                            class="gallery image-popup img d-flex align-items-center"
-                           style="background-image: url({% static 'images/polkolonie3.jpg' %});">
+                           style="background-image: url({% static 'images/eventy1.jpg' %});">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     					</div>
 						</a>

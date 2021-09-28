@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -25,8 +26,16 @@
     <link rel="stylesheet" href="{%  static 'css/flaticon.css' %}" >
     <link rel="stylesheet" href="{%  static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{%  static 'css/style.css' %}" >
+    <link rel="stylesheet" href="{%  static 'cookielaw/css/cookielaw.css' %}" >
+
   </head>
   <body>
+
+{% load cookielaw_tags %}
+{% if cookielaw.notset %}{% rejectable_cookielaw_banner %}{% endif %}
+
+
+
 
 	  <div class="py-2 bg-primary">
     	<div class="container">
@@ -58,13 +67,13 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-                <li class="nav-item "><a href="{%  url 'index' %}" class="nav-link pl-0" style="color: green"> <strong> O nas </strong></a></li>
-	            <li class="nav-item"><a href="{% url 'atrakcje' %}" class="nav-link" style="color: green"> <strong> Dmuchańce i atrakcje </strong></a></li>
-	        	<li class="nav-item"><a href="{% url 'eventy' %}" class="nav-link" style="color: green"><strong>Eventy</strong></a></li>
-                <li class="nav-item"><a href="{% url 'przedszkola' %}" class="nav-link" style="color: green"><strong> Zajęcia w przedszkolach </strong></a></li>
-                <li class="nav-item"><a href="{% url 'obozy' %}" class="nav-link" style="color: green"><strong> Półkolonie i obozy</strong></a></li>
-                <li class="nav-item"><a href="{% url 'zielona-szkola' %}" class="nav-link" style="color: green;"><strong> Zielona szkoła </strong></a></li>
-	            <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link" style="color: green"><strong> Kontakt </strong></a></li>
+                <li class="nav-item "><a href="{%  url 'index' %}" class="nav-link pl-0"> <strong> O nas </strong></a></li>
+	            <li class="nav-item"><a href="{% url 'atrakcje' %}" class="nav-link"> <strong> Dmuchańce i atrakcje </strong></a></li>
+	        	<li class="nav-item"><a href="{% url 'eventy' %}" class="nav-link"><strong>Eventy</strong></a></li>
+                <li class="nav-item"><a href="{% url 'przedszkola' %}" class="nav-link"><strong> Zajęcia w przedszkolach </strong></a></li>
+                <li class="nav-item"><a href="{% url 'obozy' %}" class="nav-link"><strong> Półkolonie i obozy</strong></a></li>
+                <li class="nav-item"><a href="{% url 'zielona-szkola' %}" class="nav-link"><strong> Zielona szkoła </strong></a></li>
+	            <li class="nav-item"><a href="{% url 'kontakt' %}" class="nav-link"><strong> Kontakt </strong></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -75,8 +84,9 @@
 
     {% block content%}
     {% endblock %}
-		
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+
+
+      <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-6 col-lg-3">
@@ -84,57 +94,69 @@
             	<h2 class="ftco-heading-2">Masz pytania?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">os. Witosa 24/27, 77-300 Człuchów</span></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">os. Witosa 24/27, <br/> 77-300 Człuchów</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+48 512 503 608</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@ziomkolandia.pl</span></a></li>
 	              </ul>
 	            </div>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-3">
             <div class="ftco-footer-widget mb-5">
-              <h2 class="ftco-heading-2">Ostatnie wpisy </h2>
+              <h2 class="ftco-heading-2">Aktualności </h2>
+                     {% for post in latest_post %}
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url({% static 'images/image_1.jpg' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+
+               <a class="blog-img mr-4" style="background-image:  url({{  post.images.url  }})"></a>
+                  <div class="text">
+                  <h3 class="heading"><a href="{% url 'post_detail' pk=post.pk %}">  {{ post.title }}</a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Dec 25, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div><a><span class="icon-calendar"></span> {{ post.publish_date|date:'y-m-d'}}</a></div>
                   </div>
                 </div>
               </div>
-              <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4" style="background-image: url( {% static 'images/image_2.jpg' %});"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Dec 25, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
+{% endfor %}
+
+
             </div>
+
           </div>
+<!-- footer -->
           <div class="col-md-6 col-lg-3">
             <div class="ftco-footer-widget mb-5 ml-md-4">
-              <h2 class="ftco-heading-2">Links</h2>
+              <h2 class="ftco-heading-2">Przydatne linki</h2>
               <ul class="list-unstyled">
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                <li><a href="{% url 'index' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Strona główna</a></li>
+                <li><a href="{% url 'atrakcje' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Atrakcje - oferta</a></li>
+                <li><a href="{% url 'eventy' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Eventy - oferta</a></li>
+                <li><a href="{% url 'oferta' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Obozy - oferta</a></li>
+                <li><a href="{% url 'kids_enroll_camp' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Obozy - zapisy</a></li>
+                <li><a href="{% url 'kids_enroll_day_camp' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Półkolonie - zapisy</a></li>
+                <li><a href="{% url 'oferta-zielona-szkola' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Zielona szkoła - oferta</a></li>
+                <li><a href="{% url 'polityka' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Polityka prywatności</a></li>
+                <li><a href="{% url 'regulamin' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Regulamin</a></li>
+                <li><a href="{% url 'kontakt' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Kontakt</a></li>
               </ul>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-3">
-            {% block newsletter %}
-        {% endblock %}
 
+<div class="ftco-footer-widget mb-5">
+            	<h2 class="ftco-heading-2">Newsletter</h2>
+              <form enctype="multipart/form-data" method="POST" action="" class="subscribe-form">
+                <div class="form-group">
+                    {% csrf_token %}
+              <input type="text" name="newsletter_email" class="form-control mb-2 text-center"
+                           placeholder="Wpisz swój adres mailowy">
+                     {% if form.is_valid %}
+                      {{ form.newsletter_email.value}}
+                        {% endif %}
+                    <button type="submit" value="Zapisz mnie" class="form-control submit px-3"> Zapisz mnie </button>
+                </div>
+              </form>
+            </div>
             <div class="ftco-footer-widget mb-5">
             	<h2 class="ftco-heading-2 mb-0">Połącz się z nami w sieci</h2>
             	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
@@ -150,14 +172,32 @@
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
+
         </div>
       </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+<p>
+          {% if messages %}
+
+                      {% for message in messages %}
+                   {{ message }}
+                    {% endfor %}
+
+                  {% endif %}
+          </p>
+          </div>
+        </div>
+
+
+
     </footer>
-    
-  
+
 
   <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
   <script src="{%  static 'js/jquery.min.js' %}"></script>
@@ -177,6 +217,7 @@
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAKZnDA2PuJ8cgCFmEiO--gBJlKj76vWQ&callback=initMap&libraries=&v=weekly"></script> -->
   <script src="{%  static 'js/google-map.js'%}"></script>
   <script src="{%  static 'js/main.js'%}"></script>
+  <script src="{%  static 'cookielaw/js/cookielaw.js'%}"></script>
 
   </body>
 </html>

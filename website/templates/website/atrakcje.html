@@ -3,7 +3,7 @@
 {% block title %} Niezapomniane atrakcje tylko z Ziomkolandia.pl {% endblock %}
 
 {% block content %}
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/dmuchance.jpg' %});">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -24,8 +24,9 @@
         	    <div class="col-md-6 col-lg-3 ftco-animate">
         		    <div class="pricing-entry bg-light pb-4 text-center">
         			    <div>
-	        		    	<h3 class="mb-3">Tor przeszkód CrashKader Long</h3>
-	        		    	<p><span class="price">PLN 5000</span> <span class="per">/ 6h</span></p>
+	        		    	<h3 class="mb-3"><a href="{% url 'CrashKader' %}" style="color:black;">
+                                Tor przeszkód CrashKader Long </a></h3>
+	        		    	<p><span class="price">PLN 3500</span> <span class="per">/ 6h</span></p>
 	        	    	</div>
 	        	    	<div class="img" style="background-image: url({% static 'images/CrashKader.jpg'%});"></div>
 	        		    <div class="px-4">
@@ -39,8 +40,9 @@
         	    <div class="col-md-6 col-lg-3 ftco-animate">
         	    	<div class="pricing-entry bg-light pb-4 text-center">
         		    	<div>
-                            <h3 class="mb-3">Tor przeszkód CrashRunner</h3>
-                            <p><span class="price">PLN 5000</span> <span class="per">/ 6h</span></p>
+                            <h3 class="mb-3"><a href="{% url 'CrashRunner' %}" style="color: black">
+                                Tor przeszkód CrashRunner</a></h3>
+                            <p><span class="price">PLN 3500</span> <span class="per">/ 6h</span></p>
 	        	    	</div>
                         <div class="img" style="background-image: url({% static 'images/CrashRunner.jpg'%});"></div>
                         <div class="px-4">
@@ -55,7 +57,8 @@
         	    <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="pricing-entry bg-light active pb-4 text-center">
                         <div>
-                            <h3 class="mb-3">Plac zabaw Kolorowe Klocki </h3>
+                            <h3 class="mb-3"><a href="{% url 'KlockiMaxi' %}" style="color: black">
+                                Plac zabaw Kolorowe Klocki</a> </h3>
                             <p><span class="price">PLN 2200</span> <span class="per">/ 6h</span></p>
 	        		    </div>
 	        	    	<div class="img" style="background-image: url({% static 'images/Klocki_Maxi.jpg' %});"></div>
@@ -67,20 +70,22 @@
         	    	</div>
             	</div>
 
-                <div class="col-md-6 col-lg-3 ftco-animate">
-        		    <div class="pricing-entry bg-light pb-4 text-center">
+                 <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
                         <div>
-                            <h3 class="mb-3">Archery <br/> Tag </h3>
-                            <p><span class="price">PLN 1800</span> <span class="per">/ 6h</span></p>
+                            <h3 class="mb-3"><a href="{% url 'ZjazdKolcki' %}" style="color: black">
+                                Zjazd Kolorowe Klocki x 2</a></h3>
+                            <p><span class="price">PLN 1500</span> <span class="per">/ 6h</span></p>
                         </div>
-                        <div class="img" style="background-image: url({% static 'images/luki.jpg'%});"></div>
+                        <div class="img" style="background-image: url({% static 'images/klocki_2.jpg'%});"></div>
                         <div class="px-4">
-                            <p>Ilość: 14 zestawów (łuki, maski) </p>
+                            <p>Wymiary: 7m długość, 4m szerokość, 6m wysokość</p>
                         </div>
-                        <p class="button text-center"><a href="{% url 'ArcheryTag' %}"
-                                                         class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
+        			<p class="button text-center"><a href="{% url 'ZjazdKolcki' %}"
+                                                     class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
         		    </div>
         	    </div>
+
             </div>
         </div>
   <br/>
@@ -88,41 +93,11 @@
     	<div class="container">
     		<div class="row">
 
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="pricing-entry bg-light pb-4 text-center">
-                        <div>
-                            <h3 class="mb-3">Bumper <br/> Ball</h3>
-                            <p><span class="price">PLN 1600</span> <span class="per">/ 6h</span></p>
-                        </div>
-                        <div class="img" style="background-image: url({% static 'images/Bumper_ball.jpg'%});"></div>
-                        <div class="px-4">
-                            <p>Wymiary: 1,55m średnica</p>
-                            <p>Ilość: 10 sztuk</p>
-                        </div>
-                        <p class="button text-center"><a href="{% url 'BumperBall' %}"
-                                                         class="btn btn-primary px-4 py-3">Więcej...</a></p>
-                    </div>
-        	    </div>
-
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="pricing-entry bg-light pb-4 text-center">
-                        <div>
-                            <h3 class="mb-3">Zjazd Kolorowe Klocki x 2</h3>
-                            <p><span class="price">PLN 1600</span> <span class="per">/ 6h</span></p>
-                        </div>
-                        <div class="img" style="background-image: url({% static 'images/klocki_2.jpg'%});"></div>
-                        <div class="px-4">
-                            <p>Wymiary: 7m długość, 4m szerokość, 6m wysokość</p>
-                        </div>
-        			<p class="button text-center"><a href="{% url 'ZjazdKolcki' %}"
-                                                     class="btn btn-secondary px-4 py-3">Więcej...</a></p>
-        		    </div>
-        	    </div>
-
-               	<div class="col-md-6 col-lg-3 ftco-animate">
+                	<div class="col-md-6 col-lg-3 ftco-animate">
         	    	<div class="pricing-entry bg-light pb-4 text-center">
         		    	<div>
-	        		    	<h3 class="mb-3">Ścianka wspinaczkowa</h3>
+	        		    	<h3 class="mb-3"><a href="{% url 'ClimbingWall' %}" style="color: black">
+                                Ścianka Wspinaczkowa</a></h3>
 	        			    <p><span class="price">PLN 1500</span> <span class="per">/ 6h</span></p>
                         </div>
                         <div class="img" style="background-image: url({% static 'images/sciana.jpg'%});"></div>
@@ -130,34 +105,90 @@
                             <p>Wymiary: 6m długość, 6m szerokość, 6m wysokość</p>
                         </div>
         			        <p class="button text-center"><a href="{% url 'ClimbingWall' %}"
-                                                             class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+                                                             class="btn btn-primary px-4 py-3">Więcej...</a></p>
         		    </div>
             	</div>
+
+                	<div class="col-md-6 col-lg-3 ftco-animate">
+        	    	<div class="pricing-entry bg-light pb-4 text-center">
+        		    	<div>
+	        		    	<h3 class="mb-3"><a href="{% url 'Snooker' %}" style="color: black">
+                                Giga <br/> Piłkarzyki</a></h3>
+	        			    <p><span class="price">PLN 1300</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/atrakcje/giga.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 12m długość, 6m szerokość, 2,1m wysokość</p>
+                        </div>
+        			        <p class="button text-center"><a href="{% url 'Snooker' %}"
+                                                             class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+        		    </div>
+            	</div>
+
+                   <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'ArcheryTag' %}" style="color: black">
+                                Archery <br/> Tag </a></h3>
+                            <p><span class="price">PLN 1200</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/luki.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Ilość: 14 zestawów <br/> (łuki, maski) </p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'ArcheryTag' %}"
+                                                         class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+        		    </div>
+        	    </div>
 
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="pricing-entry bg-light pb-4 text-center">
                         <div>
-                            <h3 class="mb-3">Plac zabaw Kolorowe Klocki</h3>
+                            <h3 class="mb-3"><a href="{% url 'BumperBall' %}" style="color: black">
+                                Bumper <br/> Ball</a></h3>
                             <p><span class="price">PLN 1200</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/Bumper_ball.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 1,55m średnica</p>
+                            <p>Ilość: 10 sztuk</p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'BumperBall' %}"
+                                                         class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
+            </div>
+        </div>
+
+
+<br/>
+    	<div class="container">
+    		<div class="row">
+
+
+
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'SkakaniecKlocki' %}" style="color: black">
+                                Plac zabaw Kolorowe Klocki</a></h3>
+                            <p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
                         </div>
                         <div class="img" style="background-image: url({% static 'images/Klocki_Mini.jpg'%});"></div>
                         <div class="px-4">
                             <p>Wymiary: 5m długość, 4m szerokość, 4m wysokość</p>
                         </div>
-                          <p class="button text-center"><a href="{% url 'DmuchaniecKlocki' %}"
-                                                           class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
+                          <p class="button text-center"><a href="{% url 'SkakaniecKlocki' %}"
+                                                           class="btn btn-primary px-4 py-3">Więcej...</a></p>
                     </div>
                 </div>
-            </div>
-        </div>
-    <br/>
-    	<div class="container">
-    		<div class="row">
+
 
                	<div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="pricing-entry bg-light pb-4 text-center">
                         <div>
-                            <h3 class="mb-3">Skakaniec Kolorowe Klocki</h3>
+                            <h3 class="mb-3"><a href="{% url 'DmuchaniecKlocki' %}" style="color: black">
+                                Skakaniec Kolorowe Klocki</a></h3>
                             <p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
                         </div>
                         <div class="img" style="background-image: url({% static 'images/Kolorowe_klocki.jpg'%});"></div>
@@ -165,7 +196,7 @@
                             <p>Wymiary: 5m długość, 4m szerokość, 5m wysokość</p>
                         </div>
                             <p class="button text-center"><a href="{% url 'DmuchaniecKlocki' %}"
-                                                             class="btn btn-primary px-4 py-3">Więcej...</a></p>
+                                                             class="btn btn-secondary px-4 py-3">Więcej...</a></p>
         		    </div>
         	    </div>
 
@@ -173,7 +204,8 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
         		    <div class="pricing-entry bg-light pb-4 text-center">
                         <div>
-                            <h3 class="mb-3">Dmuchana poducha Water Blob</h3>
+                            <h3 class="mb-3"><a href="{% url 'PoduchaWodna' %}" style="color: black">
+                                Dmuchana poducha Water Blob</a></h3>
                             <p><span class="price">PLN 1000</span> <span class="per">/ 6h</span></p>
                         </div>
                         <div class="img" style="background-image: url({% static 'images/water_blob.jpg'%});"></div>
@@ -181,22 +213,100 @@
                             <p>Wymiary: 10m długość, 4m szerokość</p>
                         </div>
                         <p class="button text-center"><a href="{% url 'PoduchaWodna' %}"
-                                                         class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+                                                         class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
                     </div>
                 </div>
+
+
+                  <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'WatherRoller' %}" style="color: black">
+                                Wodny <br/> Walec</a></h3>
+                            <p><span class="price">PLN 600</span> <span class="per">/ 6h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/atrakcje/walec1.jpg'%});"></div>
+                        <div class="px-4">
+                            <p>Wymiary: 10m długość, 4m szerokość</p>
+                        </div>
+                        <p class="button text-center"><a href="{% url 'WatherRoller' %}"
+                                                         class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                    <br/>
+    	<div class="container">
+    		<div class="row">
 
                 <div class="col-md-6 col-lg-3 ftco-animate">
         		    <div class="pricing-entry bg-light pb-4 text-center">
                         <div>
-                            <h3 class="mb-3">RJB - Banan, Poduchy, Narty</h3>
-                            <p><span class="price">PLN 350</span> <span class="per">/ 1h</span></p>
+                            <h3 class="mb-3"><a href="{% url 'Motorowka' %}" style="color: black">
+                                RIB - Banan, Poduchy, Narty</a></h3>
+                            <p><span class="price">PLN 400</span> <span class="per">/ 1h</span></p>
                         </div>
                         <div class="img" style="background-image: url({% static 'images/lodka.jpg'%});"></div>
                         <div class="px-4">
-                            <p>Minimum 3h</p>
+                           <p>Instruktor w cenie</p>
+                           <p>Minimum 3h</p>
                         </div>
-                            <p class="button text-center"><a href="#"
+                            <p class="button text-center"><a href="{% url 'Motorowka' %}"
+                                                             class="btn btn-primary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
+
+                  <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'Paintball' %}" style="color: black">
+                              Paintball <br/> Gra zespołowa  </a></h3>
+                            <p><span class="price">PLN 50</span> <span class="per">/ osoby</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/atrakcje/paint.jpg'%});"></div>
+                        <div class="px-4">
+                          <p>Minimum 20 osób</p>
+                            <p>Instruktor w cenie</p>
+                        </div>
+                            <p class="button text-center"><a href="{% url 'Paintball' %}"
+                                                             class="btn btn-secondary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
+
+                   <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'WataCukrowa' %}" style="color: black">
+                               Wata cukrowa <br/> Popcorn </a></h3>
+                            <p><span class="price">PLN 200</span> <span class="per">/ 1h</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/atrakcje/wata1.jpg'%});"></div>
+                        <div class="px-4">
+                              <p>Produkty w cenie</p>
+                            <p>Minimum 3 godziny</p>
+
+                        </div>
+                            <p class="button text-center"><a href="{% url 'WataCukrowa' %}"
                                                              class="btn btn-tertiary px-4 py-3">Więcej...</a></p>
+                    </div>
+        	    </div>
+
+                   <div class="col-md-6 col-lg-3 ftco-animate">
+        		    <div class="pricing-entry bg-light pb-4 text-center">
+                        <div>
+                            <h3 class="mb-3"><a href="{% url 'Agregat' %}" style="color: black">
+                               Agregat Proton  <br/> Maks. 12 kW </a></h3>
+                            <p><span class="price">PLN 250</span> <span class="per">/ doba</span></p>
+                        </div>
+                        <div class="img" style="background-image: url({% static 'images/atrakcje/agregat.jpg'%});"></div>
+                        <div class="px-4">
+                          <p>Minimum 1 doba</p>
+                            <p>Odbiór własny</p>
+                        </div>
+                            <p class="button text-center"><a href="{% url 'Agregat' %}"
+                                                             class="btn btn-quarternary px-4 py-3">Więcej...</a></p>
                     </div>
         	    </div>
           </div>

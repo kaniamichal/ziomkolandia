@@ -1,14 +1,14 @@
 {% extends 'website/base.html' %}
 {% load static %}
-{% block title %} Zapisy na zajęcia w przedszkolach z Ziomkolandia.pl {% endblock %}
+{% block title %} Zapisy na zajęcia w przedszkolach z Ziomkosfrea s.c {% endblock %}
 
 {% block content %}
-   <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+   <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/aktywna-ziomkolandia.jpg' %});">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Aktywna ziomkolandia - zapisy na zajęcia</h1>
+            <h1 class="mb-2 bread">Aktywna Ziomkolandia - zapisy na zajęcia</h1>
             <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">O nas <i class="ion-ios-arrow-forward"></i></a></span> <span> <a href="{% url 'przedszkola' %}"> Aktywna ziomkolandia <i class="ion-ios-arrow-forward"></i></a></span></p>
           </div>
         </div>
@@ -16,8 +16,11 @@
     </section>
 
     <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
-            <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate fadeInUp ftco-animated">
-                 <h2 class="mb-4 ml-5" style="color: green"  >Zapisując dziecko na zajęcia potwierdzasz jednocześnie, że akceptujesz treść regulaminu. </h2>
+            <div class="col-md-12 wrap-about py-5 pr-md-4 ftco-animate fadeInUp ftco-animated">
+                 <h2 class="mb-4 ml-5" style="color: green">
+                     Zapisując dziecko na zajęcia potwierdzasz jednocześnie, że zapoznałeś/aś się i akceptujesz treść
+                    <a href="{% url 'regulamin' %}" target="_blank"> regulaminu  </a> oraz
+                     <a href="{% url 'polityka' %}" target="_blank">polityki prywatności.</a></h2>
             </div>
 			<div class="container">
 				<div class="row d-flex align-items-stretch no-gutters">
@@ -26,8 +29,11 @@
                              <table>
                              {{ form.as_table }}
                              {{ captchaField }}
+
                              </table>
                              <button type="submit" class="btn btn-primary py-3 px-5">Zapisz</button>
+                          <!--   <button type="reset" class="submit btn btn-secondary py-3 px-5" id="reset" >Wyczyść</button> -->
+                             <button class="submit btn btn-quarternary py-3 px-5"><a href="{% url 'kids_enroll' %}" style="color: white">Wyczyść</a></button>
                          </form>
                 </div>
             </div>
