@@ -54,23 +54,7 @@ def join_form(request):
     else:
         form = JoinForm()
     return {'form': form}
-#
-#     if request.method == 'POST':
-#
-#         form = JoinForm(data=request.POST)
-#         email = request.POST.get('newsletter_email', '')
-#         if form.is_valid():
-#             join = form.save(commit=False)
-#             join.newsletter_email = email
-#             print(email)
-#             join.newsletter_timestamp = timezone.now()
-#             join.save()
-#             return 'website/thanks.html'
-#
-#     else:
-#         form = JoinForm(request)
-#
-#     request.news_form = form
+
 
 def cookielaw(request):
     """Add cookielaw context variable to the context."""

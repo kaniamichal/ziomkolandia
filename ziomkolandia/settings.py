@@ -22,12 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y5mv3(bssr4q&e30^1fj8dn(^$i1ew9s-j24_=_v^i1&8$a=(%'
+with open(os.path.join(BASE_DIR, 'secret_key.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.ziomkolandia.pl', 'ziomkolandia.pl']
 DEFAULT_CHARSET = 'utf-8'
 
 # Application definition
@@ -65,7 +66,6 @@ ROOT_URLCONF = 'ziomkolandia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [BASE_DIR / 'website/templates']
         'DIRS': [BASE_DIR / 'website/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -94,28 +94,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ziomkolandia.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'da189784_ziomk',
-        'USER': 'da189784_ziomek',
-        'PASSWORD': 'Kemoiz123La',
-        'HOST': '46.242.147.37',
+        'NAME': 'm1470_ziomk',
+        'USER': 'm1470_ziomek',
+        'PASSWORD': 'Kemoiz12La3',
+        'HOST': 'mysql54.mydevil.net',
         'PORT': 3306,
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -132,8 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 # newsletter
 NEWSLETTER_THUMBNAIL = 'sorl-thumbnail'
@@ -178,6 +165,18 @@ STATICFILES_DIRS = [BASE_DIR / "website/templates/static"]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# HTTPS settings
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+
+# HSTS settings
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+
 
 # STATIC_ROOT = [BASE_DIR, 'public', 'static', 'staticfiles']
 
